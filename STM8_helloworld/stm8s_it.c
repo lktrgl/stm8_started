@@ -43,8 +43,8 @@
 /* Public functions ----------------------------------------------------------*/
 /* Public variables ----------------------------------------------------------*/
 
-extern uint8_t     g_flag1ms;    // flag for 1ms interrupt (for TIM4 ISR)
-extern uint32_t    g_count1ms;   // 1ms counter (for TIM4 ISR)
+// extern uint8_t     g_flag1ms;    // flag for 1ms interrupt (for TIM4 ISR)
+// extern uint32_t    g_count1ms;   // 1ms counter (for TIM4 ISR)
 
 
 #ifdef _COSMIC_
@@ -496,8 +496,8 @@ INTERRUPT_HANDLER ( TIM4_UPD_OVF_IRQHandler, 23 )
   TIM4_ClearITPendingBit ( TIM4_IT_UPDATE );
 
   // increase 1ms SW clock
-  g_flag1ms = 1;
-  g_count1ms++;
+//   g_flag1ms = 1;
+//   g_count1ms++;
 
 }
 #endif /* (STM8S903) || (STM8AF622x)*/
