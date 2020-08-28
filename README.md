@@ -399,3 +399,14 @@ Goto [Debug > Add Confeguration ...]
 ```
 
 Then [Debug > Start Debugging] or press **F5**
+
+### Building using CMake approach
+
+```
+git clone  --recurse-submodules --verbose --remote --progress https://github.com/lktrgl/stm8_started.git \
+  && cd stm8_started/STM8_helloworld \
+  && mkdir build \
+  && cd build \
+  && cmake -DCMAKE_TOOLCHAIN_FILE=../Toolchain-sdcc.cmake .. \
+  && make all
+```
