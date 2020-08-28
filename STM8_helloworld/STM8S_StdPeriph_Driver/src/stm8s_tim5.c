@@ -16,8 +16,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -36,9 +36,9 @@
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
-static void TI1_Config(uint8_t TIM5_ICPolarity, uint8_t TIM5_ICSelection, uint8_t TIM5_ICFilter);
-static void TI2_Config(uint8_t TIM5_ICPolarity, uint8_t TIM5_ICSelection, uint8_t TIM5_ICFilter);
-static void TI3_Config(uint8_t TIM5_ICPolarity, uint8_t TIM5_ICSelection, uint8_t TIM5_ICFilter);
+static void TI1_Config ( uint8_t TIM5_ICPolarity, uint8_t TIM5_ICSelection, uint8_t TIM5_ICFilter );
+static void TI2_Config ( uint8_t TIM5_ICPolarity, uint8_t TIM5_ICSelection, uint8_t TIM5_ICFilter );
+static void TI3_Config ( uint8_t TIM5_ICPolarity, uint8_t TIM5_ICSelection, uint8_t TIM5_ICFilter );
 /**
   * @addtogroup TIM5_Public_Functions
   * @{
@@ -49,36 +49,36 @@ static void TI3_Config(uint8_t TIM5_ICPolarity, uint8_t TIM5_ICSelection, uint8_
   * @param  None
   * @retval None
   */
-void TIM5_DeInit(void)
+void TIM5_DeInit ( void )
 {
-  TIM5->CR1 = (uint8_t)TIM5_CR1_RESET_VALUE;
+  TIM5->CR1 = ( uint8_t ) TIM5_CR1_RESET_VALUE;
   TIM5->CR2 = TIM5_CR2_RESET_VALUE;
   TIM5->SMCR = TIM5_SMCR_RESET_VALUE;
-  TIM5->IER = (uint8_t)TIM5_IER_RESET_VALUE;
-  TIM5->SR2 = (uint8_t)TIM5_SR2_RESET_VALUE;
-  
+  TIM5->IER = ( uint8_t ) TIM5_IER_RESET_VALUE;
+  TIM5->SR2 = ( uint8_t ) TIM5_SR2_RESET_VALUE;
+
   /* Disable channels */
-  TIM5->CCER1 = (uint8_t)TIM5_CCER1_RESET_VALUE;
-  TIM5->CCER2 = (uint8_t)TIM5_CCER2_RESET_VALUE;
-  
+  TIM5->CCER1 = ( uint8_t ) TIM5_CCER1_RESET_VALUE;
+  TIM5->CCER2 = ( uint8_t ) TIM5_CCER2_RESET_VALUE;
+
   /* Then reset channel registers: it also works if lock level is equal to 2 or 3 */
-  TIM5->CCER1 = (uint8_t)TIM5_CCER1_RESET_VALUE;
-  TIM5->CCER2 = (uint8_t)TIM5_CCER2_RESET_VALUE;
-  TIM5->CCMR1 = (uint8_t)TIM5_CCMR1_RESET_VALUE;
-  TIM5->CCMR2 = (uint8_t)TIM5_CCMR2_RESET_VALUE;
-  TIM5->CCMR3 = (uint8_t)TIM5_CCMR3_RESET_VALUE;
-  TIM5->CNTRH = (uint8_t)TIM5_CNTRH_RESET_VALUE;
-  TIM5->CNTRL = (uint8_t)TIM5_CNTRL_RESET_VALUE;
-  TIM5->PSCR	= (uint8_t)TIM5_PSCR_RESET_VALUE;
-  TIM5->ARRH 	= (uint8_t)TIM5_ARRH_RESET_VALUE;
-  TIM5->ARRL 	= (uint8_t)TIM5_ARRL_RESET_VALUE;
-  TIM5->CCR1H = (uint8_t)TIM5_CCR1H_RESET_VALUE;
-  TIM5->CCR1L = (uint8_t)TIM5_CCR1L_RESET_VALUE;
-  TIM5->CCR2H = (uint8_t)TIM5_CCR2H_RESET_VALUE;
-  TIM5->CCR2L = (uint8_t)TIM5_CCR2L_RESET_VALUE;
-  TIM5->CCR3H = (uint8_t)TIM5_CCR3H_RESET_VALUE;
-  TIM5->CCR3L = (uint8_t)TIM5_CCR3L_RESET_VALUE;
-  TIM5->SR1 = (uint8_t)TIM5_SR1_RESET_VALUE;
+  TIM5->CCER1 = ( uint8_t ) TIM5_CCER1_RESET_VALUE;
+  TIM5->CCER2 = ( uint8_t ) TIM5_CCER2_RESET_VALUE;
+  TIM5->CCMR1 = ( uint8_t ) TIM5_CCMR1_RESET_VALUE;
+  TIM5->CCMR2 = ( uint8_t ) TIM5_CCMR2_RESET_VALUE;
+  TIM5->CCMR3 = ( uint8_t ) TIM5_CCMR3_RESET_VALUE;
+  TIM5->CNTRH = ( uint8_t ) TIM5_CNTRH_RESET_VALUE;
+  TIM5->CNTRL = ( uint8_t ) TIM5_CNTRL_RESET_VALUE;
+  TIM5->PSCR  = ( uint8_t ) TIM5_PSCR_RESET_VALUE;
+  TIM5->ARRH  = ( uint8_t ) TIM5_ARRH_RESET_VALUE;
+  TIM5->ARRL  = ( uint8_t ) TIM5_ARRL_RESET_VALUE;
+  TIM5->CCR1H = ( uint8_t ) TIM5_CCR1H_RESET_VALUE;
+  TIM5->CCR1L = ( uint8_t ) TIM5_CCR1L_RESET_VALUE;
+  TIM5->CCR2H = ( uint8_t ) TIM5_CCR2H_RESET_VALUE;
+  TIM5->CCR2L = ( uint8_t ) TIM5_CCR2L_RESET_VALUE;
+  TIM5->CCR3H = ( uint8_t ) TIM5_CCR3H_RESET_VALUE;
+  TIM5->CCR3L = ( uint8_t ) TIM5_CCR3L_RESET_VALUE;
+  TIM5->SR1 = ( uint8_t ) TIM5_SR1_RESET_VALUE;
 }
 
 /**
@@ -87,14 +87,14 @@ void TIM5_DeInit(void)
   * @param    TIM5_Period specifies the Period value.
   * @retval None
   */
-void TIM5_TimeBaseInit( TIM5_Prescaler_TypeDef TIM5_Prescaler,
-                        uint16_t TIM5_Period)
+void TIM5_TimeBaseInit ( TIM5_Prescaler_TypeDef TIM5_Prescaler,
+                         uint16_t TIM5_Period )
 {
   /* Set the Prescaler value */
-  TIM5->PSCR = (uint8_t)(TIM5_Prescaler);
+  TIM5->PSCR = ( uint8_t ) ( TIM5_Prescaler );
   /* Set the Autoreload value */
-  TIM5->ARRH = (uint8_t)(TIM5_Period >> 8) ;
-  TIM5->ARRL = (uint8_t)(TIM5_Period);
+  TIM5->ARRH = ( uint8_t ) ( TIM5_Period >> 8 ) ;
+  TIM5->ARRL = ( uint8_t ) ( TIM5_Period );
 }
 
 /**
@@ -105,29 +105,29 @@ void TIM5_TimeBaseInit( TIM5_Prescaler_TypeDef TIM5_Prescaler,
   * @param   TIM5_OCPolarity specifies the Output Compare Polarity  from @ref TIM5_OCPolarity_TypeDef.
   * @retval None
   */
-void TIM5_OC1Init(TIM5_OCMode_TypeDef TIM5_OCMode,
-                  TIM5_OutputState_TypeDef TIM5_OutputState,
-                  uint16_t TIM5_Pulse,
-                  TIM5_OCPolarity_TypeDef TIM5_OCPolarity)
+void TIM5_OC1Init ( TIM5_OCMode_TypeDef TIM5_OCMode,
+                    TIM5_OutputState_TypeDef TIM5_OutputState,
+                    uint16_t TIM5_Pulse,
+                    TIM5_OCPolarity_TypeDef TIM5_OCPolarity )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_OC_MODE_OK(TIM5_OCMode));
-  assert_param(IS_TIM5_OUTPUT_STATE_OK(TIM5_OutputState));
-  assert_param(IS_TIM5_OC_POLARITY_OK(TIM5_OCPolarity));
-  
+  assert_param ( IS_TIM5_OC_MODE_OK ( TIM5_OCMode ) );
+  assert_param ( IS_TIM5_OUTPUT_STATE_OK ( TIM5_OutputState ) );
+  assert_param ( IS_TIM5_OC_POLARITY_OK ( TIM5_OCPolarity ) );
+
   /* Disable the Channel 1: Reset the CCE Bit, Set the Output State , the Output Polarity */
-  TIM5->CCER1 &= (uint8_t)(~( TIM5_CCER1_CC1E | TIM5_CCER1_CC1P));
+  TIM5->CCER1 &= ( uint8_t ) ( ~ ( TIM5_CCER1_CC1E | TIM5_CCER1_CC1P ) );
   /* Set the Output State &  Set the Output Polarity  */
-  TIM5->CCER1 |= (uint8_t)((uint8_t)(TIM5_OutputState & TIM5_CCER1_CC1E )| 
-                           (uint8_t)(TIM5_OCPolarity & TIM5_CCER1_CC1P));
-  
+  TIM5->CCER1 |= ( uint8_t ) ( ( uint8_t ) ( TIM5_OutputState & TIM5_CCER1_CC1E ) |
+                               ( uint8_t ) ( TIM5_OCPolarity & TIM5_CCER1_CC1P ) );
+
   /* Reset the Output Compare Bits  & Set the Output Compare Mode */
-  TIM5->CCMR1 = (uint8_t)((uint8_t)(TIM5->CCMR1 & (uint8_t)(~TIM5_CCMR_OCM)) | 
-                          (uint8_t)TIM5_OCMode);
-  
+  TIM5->CCMR1 = ( uint8_t ) ( ( uint8_t ) ( TIM5->CCMR1 & ( uint8_t ) ( ~TIM5_CCMR_OCM ) ) |
+                              ( uint8_t ) TIM5_OCMode );
+
   /* Set the Pulse value */
-  TIM5->CCR1H = (uint8_t)(TIM5_Pulse >> 8);
-  TIM5->CCR1L = (uint8_t)(TIM5_Pulse);
+  TIM5->CCR1H = ( uint8_t ) ( TIM5_Pulse >> 8 );
+  TIM5->CCR1L = ( uint8_t ) ( TIM5_Pulse );
 }
 
 /**
@@ -138,30 +138,30 @@ void TIM5_OC1Init(TIM5_OCMode_TypeDef TIM5_OCMode,
   * @param   TIM5_OCPolarity specifies the Output Compare Polarity  from @ref TIM5_OCPolarity_TypeDef.
   * @retval None
   */
-void TIM5_OC2Init(TIM5_OCMode_TypeDef TIM5_OCMode,
-                  TIM5_OutputState_TypeDef TIM5_OutputState,
-                  uint16_t TIM5_Pulse,
-                  TIM5_OCPolarity_TypeDef TIM5_OCPolarity)
+void TIM5_OC2Init ( TIM5_OCMode_TypeDef TIM5_OCMode,
+                    TIM5_OutputState_TypeDef TIM5_OutputState,
+                    uint16_t TIM5_Pulse,
+                    TIM5_OCPolarity_TypeDef TIM5_OCPolarity )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_OC_MODE_OK(TIM5_OCMode));
-  assert_param(IS_TIM5_OUTPUT_STATE_OK(TIM5_OutputState));
-  assert_param(IS_TIM5_OC_POLARITY_OK(TIM5_OCPolarity));
-  
+  assert_param ( IS_TIM5_OC_MODE_OK ( TIM5_OCMode ) );
+  assert_param ( IS_TIM5_OUTPUT_STATE_OK ( TIM5_OutputState ) );
+  assert_param ( IS_TIM5_OC_POLARITY_OK ( TIM5_OCPolarity ) );
+
   /* Disable the Channel 1: Reset the CCE Bit, Set the Output State , the Output Polarity */
-  TIM5->CCER1 &= (uint8_t)(~( TIM5_CCER1_CC2E |  TIM5_CCER1_CC2P ));
+  TIM5->CCER1 &= ( uint8_t ) ( ~ ( TIM5_CCER1_CC2E |  TIM5_CCER1_CC2P ) );
   /* Set the Output State & Set the Output Polarity  */
-  TIM5->CCER1 |= (uint8_t)((uint8_t)(TIM5_OutputState  & TIM5_CCER1_CC2E )| \
-    (uint8_t)(TIM5_OCPolarity & TIM5_CCER1_CC2P));
-  
-  
+  TIM5->CCER1 |= ( uint8_t ) ( ( uint8_t ) ( TIM5_OutputState  & TIM5_CCER1_CC2E ) | \
+                               ( uint8_t ) ( TIM5_OCPolarity & TIM5_CCER1_CC2P ) );
+
+
   /* Reset the Output Compare Bits  & Set the Output Compare Mode */
-  TIM5->CCMR2 = (uint8_t)((uint8_t)(TIM5->CCMR2 & (uint8_t)(~TIM5_CCMR_OCM)) |
-                          (uint8_t)TIM5_OCMode);
-  
+  TIM5->CCMR2 = ( uint8_t ) ( ( uint8_t ) ( TIM5->CCMR2 & ( uint8_t ) ( ~TIM5_CCMR_OCM ) ) |
+                              ( uint8_t ) TIM5_OCMode );
+
   /* Set the Pulse value */
-  TIM5->CCR2H = (uint8_t)(TIM5_Pulse >> 8);
-  TIM5->CCR2L = (uint8_t)(TIM5_Pulse);
+  TIM5->CCR2H = ( uint8_t ) ( TIM5_Pulse >> 8 );
+  TIM5->CCR2L = ( uint8_t ) ( TIM5_Pulse );
 }
 
 /**
@@ -172,27 +172,27 @@ void TIM5_OC2Init(TIM5_OCMode_TypeDef TIM5_OCMode,
   * @param   TIM5_OCPolarity specifies the Output Compare Polarity  from @ref TIM5_OCPolarity_TypeDef.
   * @retval None
   */
-void TIM5_OC3Init(TIM5_OCMode_TypeDef TIM5_OCMode,
-                  TIM5_OutputState_TypeDef TIM5_OutputState,
-                  uint16_t TIM5_Pulse,
-                  TIM5_OCPolarity_TypeDef TIM5_OCPolarity)
+void TIM5_OC3Init ( TIM5_OCMode_TypeDef TIM5_OCMode,
+                    TIM5_OutputState_TypeDef TIM5_OutputState,
+                    uint16_t TIM5_Pulse,
+                    TIM5_OCPolarity_TypeDef TIM5_OCPolarity )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_OC_MODE_OK(TIM5_OCMode));
-  assert_param(IS_TIM5_OUTPUT_STATE_OK(TIM5_OutputState));
-  assert_param(IS_TIM5_OC_POLARITY_OK(TIM5_OCPolarity));
+  assert_param ( IS_TIM5_OC_MODE_OK ( TIM5_OCMode ) );
+  assert_param ( IS_TIM5_OUTPUT_STATE_OK ( TIM5_OutputState ) );
+  assert_param ( IS_TIM5_OC_POLARITY_OK ( TIM5_OCPolarity ) );
   /* Disable the Channel 1: Reset the CCE Bit, Set the Output State, the Output Polarity */
-  TIM5->CCER2 &= (uint8_t)(~( TIM5_CCER2_CC3E  | TIM5_CCER2_CC3P));
+  TIM5->CCER2 &= ( uint8_t ) ( ~ ( TIM5_CCER2_CC3E  | TIM5_CCER2_CC3P ) );
   /* Set the Output State & Set the Output Polarity  */
-  TIM5->CCER2 |= (uint8_t)((uint8_t)(TIM5_OutputState  & TIM5_CCER2_CC3E   )|
-                           (uint8_t)(TIM5_OCPolarity   & TIM5_CCER2_CC3P   ));
-  
+  TIM5->CCER2 |= ( uint8_t ) ( ( uint8_t ) ( TIM5_OutputState  & TIM5_CCER2_CC3E   ) |
+                               ( uint8_t ) ( TIM5_OCPolarity   & TIM5_CCER2_CC3P   ) );
+
   /* Reset the Output Compare Bits  & Set the Output Compare Mode */
-  TIM5->CCMR3 = (uint8_t)((uint8_t)(TIM5->CCMR3 & (uint8_t)(~TIM5_CCMR_OCM)) | (uint8_t)TIM5_OCMode);
-  
+  TIM5->CCMR3 = ( uint8_t ) ( ( uint8_t ) ( TIM5->CCMR3 & ( uint8_t ) ( ~TIM5_CCMR_OCM ) ) | ( uint8_t ) TIM5_OCMode );
+
   /* Set the Pulse value */
-  TIM5->CCR3H = (uint8_t)(TIM5_Pulse >> 8);
-  TIM5->CCR3L = (uint8_t)(TIM5_Pulse);
+  TIM5->CCR3H = ( uint8_t ) ( TIM5_Pulse >> 8 );
+  TIM5->CCR3L = ( uint8_t ) ( TIM5_Pulse );
 }
 
 /**
@@ -204,48 +204,48 @@ void TIM5_OC3Init(TIM5_OCMode_TypeDef TIM5_OCMode,
   * @param   TIM5_ICFilter specifies the Input Capture Filter value (value can be an integer from 0x00 to 0x0F).
   * @retval None
   */
-void TIM5_ICInit(TIM5_Channel_TypeDef TIM5_Channel,
-                 TIM5_ICPolarity_TypeDef TIM5_ICPolarity,
-                 TIM5_ICSelection_TypeDef TIM5_ICSelection,
-                 TIM5_ICPSC_TypeDef TIM5_ICPrescaler,
-                 uint8_t TIM5_ICFilter)
+void TIM5_ICInit ( TIM5_Channel_TypeDef TIM5_Channel,
+                   TIM5_ICPolarity_TypeDef TIM5_ICPolarity,
+                   TIM5_ICSelection_TypeDef TIM5_ICSelection,
+                   TIM5_ICPSC_TypeDef TIM5_ICPrescaler,
+                   uint8_t TIM5_ICFilter )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_CHANNEL_OK(TIM5_Channel));
-  assert_param(IS_TIM5_IC_POLARITY_OK(TIM5_ICPolarity));
-  assert_param(IS_TIM5_IC_SELECTION_OK(TIM5_ICSelection));
-  assert_param(IS_TIM5_IC_PRESCALER_OK(TIM5_ICPrescaler));
-  assert_param(IS_TIM5_IC_FILTER_OK(TIM5_ICFilter));
-  
-  if (TIM5_Channel == TIM5_CHANNEL_1)
+  assert_param ( IS_TIM5_CHANNEL_OK ( TIM5_Channel ) );
+  assert_param ( IS_TIM5_IC_POLARITY_OK ( TIM5_ICPolarity ) );
+  assert_param ( IS_TIM5_IC_SELECTION_OK ( TIM5_ICSelection ) );
+  assert_param ( IS_TIM5_IC_PRESCALER_OK ( TIM5_ICPrescaler ) );
+  assert_param ( IS_TIM5_IC_FILTER_OK ( TIM5_ICFilter ) );
+
+  if ( TIM5_Channel == TIM5_CHANNEL_1 )
   {
     /* TI1 Configuration */
-    TI1_Config((uint8_t)TIM5_ICPolarity,
-               (uint8_t)TIM5_ICSelection,
-               (uint8_t)TIM5_ICFilter);
-    
+    TI1_Config ( ( uint8_t ) TIM5_ICPolarity,
+                 ( uint8_t ) TIM5_ICSelection,
+                 ( uint8_t ) TIM5_ICFilter );
+
     /* Set the Input Capture Prescaler value */
-    TIM5_SetIC1Prescaler(TIM5_ICPrescaler);
+    TIM5_SetIC1Prescaler ( TIM5_ICPrescaler );
   }
-  else if (TIM5_Channel == TIM5_CHANNEL_2)
+  else if ( TIM5_Channel == TIM5_CHANNEL_2 )
   {
     /* TI2 Configuration */
-    TI2_Config((uint8_t)TIM5_ICPolarity,
-               (uint8_t)TIM5_ICSelection,
-               (uint8_t)TIM5_ICFilter);
-    
+    TI2_Config ( ( uint8_t ) TIM5_ICPolarity,
+                 ( uint8_t ) TIM5_ICSelection,
+                 ( uint8_t ) TIM5_ICFilter );
+
     /* Set the Input Capture Prescaler value */
-    TIM5_SetIC2Prescaler(TIM5_ICPrescaler);
+    TIM5_SetIC2Prescaler ( TIM5_ICPrescaler );
   }
   else
   {
     /* TI3 Configuration */
-    TI3_Config((uint8_t)TIM5_ICPolarity,
-               (uint8_t)TIM5_ICSelection,
-               (uint8_t)TIM5_ICFilter);
-    
+    TI3_Config ( ( uint8_t ) TIM5_ICPolarity,
+                 ( uint8_t ) TIM5_ICSelection,
+                 ( uint8_t ) TIM5_ICFilter );
+
     /* Set the Input Capture Prescaler value */
-    TIM5_SetIC3Prescaler(TIM5_ICPrescaler);
+    TIM5_SetIC3Prescaler ( TIM5_ICPrescaler );
   }
 }
 
@@ -258,70 +258,70 @@ void TIM5_ICInit(TIM5_Channel_TypeDef TIM5_Channel,
   * @param   TIM5_ICFilter specifies the Input Capture Filter value (value can be an integer from 0x00 to 0x0F).
   * @retval None
   */
-void TIM5_PWMIConfig(TIM5_Channel_TypeDef TIM5_Channel,
-                     TIM5_ICPolarity_TypeDef TIM5_ICPolarity,
-                     TIM5_ICSelection_TypeDef TIM5_ICSelection,
-                     TIM5_ICPSC_TypeDef TIM5_ICPrescaler,
-                     uint8_t TIM5_ICFilter)
+void TIM5_PWMIConfig ( TIM5_Channel_TypeDef TIM5_Channel,
+                       TIM5_ICPolarity_TypeDef TIM5_ICPolarity,
+                       TIM5_ICSelection_TypeDef TIM5_ICSelection,
+                       TIM5_ICPSC_TypeDef TIM5_ICPrescaler,
+                       uint8_t TIM5_ICFilter )
 {
-  uint8_t icpolarity = (uint8_t)TIM5_ICPOLARITY_RISING;
-  uint8_t icselection = (uint8_t)TIM5_ICSELECTION_DIRECTTI;
-  
+  uint8_t icpolarity = ( uint8_t ) TIM5_ICPOLARITY_RISING;
+  uint8_t icselection = ( uint8_t ) TIM5_ICSELECTION_DIRECTTI;
+
   /* Check the parameters */
-  assert_param(IS_TIM5_PWMI_CHANNEL_OK(TIM5_Channel));
-  assert_param(IS_TIM5_IC_POLARITY_OK(TIM5_ICPolarity));
-  assert_param(IS_TIM5_IC_SELECTION_OK(TIM5_ICSelection));
-  assert_param(IS_TIM5_IC_PRESCALER_OK(TIM5_ICPrescaler));
-  
+  assert_param ( IS_TIM5_PWMI_CHANNEL_OK ( TIM5_Channel ) );
+  assert_param ( IS_TIM5_IC_POLARITY_OK ( TIM5_ICPolarity ) );
+  assert_param ( IS_TIM5_IC_SELECTION_OK ( TIM5_ICSelection ) );
+  assert_param ( IS_TIM5_IC_PRESCALER_OK ( TIM5_ICPrescaler ) );
+
   /* Select the Opposite Input Polarity */
-  if (TIM5_ICPolarity != TIM5_ICPOLARITY_FALLING)
+  if ( TIM5_ICPolarity != TIM5_ICPOLARITY_FALLING )
   {
-    icpolarity = (uint8_t)TIM5_ICPOLARITY_FALLING;
+    icpolarity = ( uint8_t ) TIM5_ICPOLARITY_FALLING;
   }
   else
   {
-    icpolarity = (uint8_t)TIM5_ICPOLARITY_RISING;
+    icpolarity = ( uint8_t ) TIM5_ICPOLARITY_RISING;
   }
-  
+
   /* Select the Opposite Input */
-  if (TIM5_ICSelection == TIM5_ICSELECTION_DIRECTTI)
+  if ( TIM5_ICSelection == TIM5_ICSELECTION_DIRECTTI )
   {
-    icselection = (uint8_t)TIM5_ICSELECTION_INDIRECTTI;
+    icselection = ( uint8_t ) TIM5_ICSELECTION_INDIRECTTI;
   }
   else
   {
-    icselection = (uint8_t)TIM5_ICSELECTION_DIRECTTI;
+    icselection = ( uint8_t ) TIM5_ICSELECTION_DIRECTTI;
   }
-  
-  if (TIM5_Channel == TIM5_CHANNEL_1)
+
+  if ( TIM5_Channel == TIM5_CHANNEL_1 )
   {
     /* TI1 Configuration */
-    TI1_Config((uint8_t)TIM5_ICPolarity, (uint8_t)TIM5_ICSelection,
-               (uint8_t)TIM5_ICFilter);
-    
+    TI1_Config ( ( uint8_t ) TIM5_ICPolarity, ( uint8_t ) TIM5_ICSelection,
+                 ( uint8_t ) TIM5_ICFilter );
+
     /* Set the Input Capture Prescaler value */
-    TIM5_SetIC1Prescaler(TIM5_ICPrescaler);
-    
+    TIM5_SetIC1Prescaler ( TIM5_ICPrescaler );
+
     /* TI2 Configuration */
-    TI2_Config((uint8_t)icpolarity, (uint8_t)icselection, (uint8_t)TIM5_ICFilter);
-    
+    TI2_Config ( ( uint8_t ) icpolarity, ( uint8_t ) icselection, ( uint8_t ) TIM5_ICFilter );
+
     /* Set the Input Capture Prescaler value */
-    TIM5_SetIC2Prescaler(TIM5_ICPrescaler);
+    TIM5_SetIC2Prescaler ( TIM5_ICPrescaler );
   }
   else
   {
     /* TI2 Configuration */
-    TI2_Config((uint8_t)TIM5_ICPolarity, (uint8_t)TIM5_ICSelection,
-               (uint8_t)TIM5_ICFilter);
-    
+    TI2_Config ( ( uint8_t ) TIM5_ICPolarity, ( uint8_t ) TIM5_ICSelection,
+                 ( uint8_t ) TIM5_ICFilter );
+
     /* Set the Input Capture Prescaler value */
-    TIM5_SetIC2Prescaler(TIM5_ICPrescaler);
-    
+    TIM5_SetIC2Prescaler ( TIM5_ICPrescaler );
+
     /* TI1 Configuration */
-    TI1_Config((uint8_t)icpolarity, (uint8_t)icselection, (uint8_t)TIM5_ICFilter);
-    
+    TI1_Config ( ( uint8_t ) icpolarity, ( uint8_t ) icselection, ( uint8_t ) TIM5_ICFilter );
+
     /* Set the Input Capture Prescaler value */
-    TIM5_SetIC1Prescaler(TIM5_ICPrescaler);
+    TIM5_SetIC1Prescaler ( TIM5_ICPrescaler );
   }
 }
 
@@ -331,19 +331,19 @@ void TIM5_PWMIConfig(TIM5_Channel_TypeDef TIM5_Channel,
   * be ENABLE or DISABLE.
   * @retval None
   */
-void TIM5_Cmd(FunctionalState NewState)
+void TIM5_Cmd ( FunctionalState NewState )
 {
   /* Check the parameters */
-  assert_param(IS_FUNCTIONALSTATE_OK(NewState));
-  
+  assert_param ( IS_FUNCTIONALSTATE_OK ( NewState ) );
+
   /* set or Reset the CEN Bit */
-  if (NewState != DISABLE)
+  if ( NewState != DISABLE )
   {
     TIM5->CR1 |= TIM5_CR1_CEN ;
   }
   else
   {
-    TIM5->CR1 &= (uint8_t)(~TIM5_CR1_CEN) ;
+    TIM5->CR1 &= ( uint8_t ) ( ~TIM5_CR1_CEN ) ;
   }
 }
 
@@ -360,21 +360,21 @@ void TIM5_Cmd(FunctionalState NewState)
   * @param   NewState new state of the TIM5 peripheral.
   * @retval None
   */
-void TIM5_ITConfig(TIM5_IT_TypeDef TIM5_IT, FunctionalState NewState)
+void TIM5_ITConfig ( TIM5_IT_TypeDef TIM5_IT, FunctionalState NewState )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_IT_OK(TIM5_IT));
-  assert_param(IS_FUNCTIONALSTATE_OK(NewState));
-  
-  if (NewState != DISABLE)
+  assert_param ( IS_TIM5_IT_OK ( TIM5_IT ) );
+  assert_param ( IS_FUNCTIONALSTATE_OK ( NewState ) );
+
+  if ( NewState != DISABLE )
   {
     /* Enable the Interrupt sources */
-    TIM5->IER |= (uint8_t)TIM5_IT;
+    TIM5->IER |= ( uint8_t ) TIM5_IT;
   }
   else
   {
     /* Disable the Interrupt sources */
-    TIM5->IER &= (uint8_t)(~TIM5_IT);
+    TIM5->IER &= ( uint8_t ) ( ~TIM5_IT );
   }
 }
 
@@ -384,19 +384,19 @@ void TIM5_ITConfig(TIM5_IT_TypeDef TIM5_IT, FunctionalState NewState)
   * be ENABLE or DISABLE.
   * @retval None
   */
-void TIM5_UpdateDisableConfig(FunctionalState NewState)
+void TIM5_UpdateDisableConfig ( FunctionalState NewState )
 {
   /* Check the parameters */
-  assert_param(IS_FUNCTIONALSTATE_OK(NewState));
-  
+  assert_param ( IS_FUNCTIONALSTATE_OK ( NewState ) );
+
   /* Set or Reset the UDIS Bit */
-  if (NewState != DISABLE)
+  if ( NewState != DISABLE )
   {
     TIM5->CR1 |= TIM5_CR1_UDIS ;
   }
   else
   {
-    TIM5->CR1 &= (uint8_t)(~TIM5_CR1_UDIS) ;
+    TIM5->CR1 &= ( uint8_t ) ( ~TIM5_CR1_UDIS ) ;
   }
 }
 
@@ -408,19 +408,19 @@ void TIM5_UpdateDisableConfig(FunctionalState NewState)
   *                       - TIM5_UPDATESOURCE_GLOBAL
   * @retval None
   */
-void TIM5_UpdateRequestConfig(TIM5_UpdateSource_TypeDef TIM5_UpdateSource)
+void TIM5_UpdateRequestConfig ( TIM5_UpdateSource_TypeDef TIM5_UpdateSource )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_UPDATE_SOURCE_OK(TIM5_UpdateSource));
-  
+  assert_param ( IS_TIM5_UPDATE_SOURCE_OK ( TIM5_UpdateSource ) );
+
   /* Set or Reset the URS Bit */
-  if (TIM5_UpdateSource != TIM5_UPDATESOURCE_GLOBAL)
+  if ( TIM5_UpdateSource != TIM5_UPDATESOURCE_GLOBAL )
   {
     TIM5->CR1 |= TIM5_CR1_URS ;
   }
   else
   {
-    TIM5->CR1 &= (uint8_t)(~TIM5_CR1_URS) ;
+    TIM5->CR1 &= ( uint8_t ) ( ~TIM5_CR1_URS ) ;
   }
 }
 
@@ -432,19 +432,19 @@ void TIM5_UpdateRequestConfig(TIM5_UpdateSource_TypeDef TIM5_UpdateSource)
   *                    - TIM5_OPMODE_REPETITIVE
   * @retval None
   */
-void TIM5_SelectOnePulseMode(TIM5_OPMode_TypeDef TIM5_OPMode)
+void TIM5_SelectOnePulseMode ( TIM5_OPMode_TypeDef TIM5_OPMode )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_OPM_MODE_OK(TIM5_OPMode));
-  
+  assert_param ( IS_TIM5_OPM_MODE_OK ( TIM5_OPMode ) );
+
   /* Set or Reset the OPM Bit */
-  if (TIM5_OPMode != TIM5_OPMODE_REPETITIVE)
+  if ( TIM5_OPMode != TIM5_OPMODE_REPETITIVE )
   {
     TIM5->CR1 |= TIM5_CR1_OPM ;
   }
   else
   {
-    TIM5->CR1 &= (uint8_t)(~TIM5_CR1_OPM) ;
+    TIM5->CR1 &= ( uint8_t ) ( ~TIM5_CR1_OPM ) ;
   }
 }
 
@@ -476,18 +476,18 @@ void TIM5_SelectOnePulseMode(TIM5_OPMode_TypeDef TIM5_OPMode)
   *                         the update event.
   * @retval None
   */
-void TIM5_PrescalerConfig(TIM5_Prescaler_TypeDef Prescaler,
-                          TIM5_PSCReloadMode_TypeDef TIM5_PSCReloadMode)
+void TIM5_PrescalerConfig ( TIM5_Prescaler_TypeDef Prescaler,
+                            TIM5_PSCReloadMode_TypeDef TIM5_PSCReloadMode )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_PRESCALER_RELOAD_OK(TIM5_PSCReloadMode));
-  assert_param(IS_TIM5_PRESCALER_OK(Prescaler));
-  
+  assert_param ( IS_TIM5_PRESCALER_RELOAD_OK ( TIM5_PSCReloadMode ) );
+  assert_param ( IS_TIM5_PRESCALER_OK ( Prescaler ) );
+
   /* Set the Prescaler value */
-  TIM5->PSCR = (uint8_t)Prescaler;
-  
+  TIM5->PSCR = ( uint8_t ) Prescaler;
+
   /* Set or reset the UG Bit */
-  TIM5->EGR = (uint8_t)TIM5_PSCReloadMode ;
+  TIM5->EGR = ( uint8_t ) TIM5_PSCReloadMode ;
 }
 
 /**
@@ -499,14 +499,14 @@ void TIM5_PrescalerConfig(TIM5_Prescaler_TypeDef Prescaler,
   *                         OC1REF.
   * @retval None
   */
-void TIM5_ForcedOC1Config(TIM5_ForcedAction_TypeDef TIM5_ForcedAction)
+void TIM5_ForcedOC1Config ( TIM5_ForcedAction_TypeDef TIM5_ForcedAction )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_FORCED_ACTION_OK(TIM5_ForcedAction));
-  
+  assert_param ( IS_TIM5_FORCED_ACTION_OK ( TIM5_ForcedAction ) );
+
   /* Reset the OCM Bits */ /* Configure The Forced output Mode */
-  TIM5->CCMR1  =  (uint8_t)((uint8_t)(TIM5->CCMR1 & (uint8_t)(~TIM5_CCMR_OCM))
-                            | (uint8_t)TIM5_ForcedAction);
+  TIM5->CCMR1  =  ( uint8_t ) ( ( uint8_t ) ( TIM5->CCMR1 & ( uint8_t ) ( ~TIM5_CCMR_OCM ) )
+                                | ( uint8_t ) TIM5_ForcedAction );
 }
 
 /**
@@ -518,14 +518,14 @@ void TIM5_ForcedOC1Config(TIM5_ForcedAction_TypeDef TIM5_ForcedAction)
   *                         OC2REF.
   * @retval None
   */
-void TIM5_ForcedOC2Config(TIM5_ForcedAction_TypeDef TIM5_ForcedAction)
+void TIM5_ForcedOC2Config ( TIM5_ForcedAction_TypeDef TIM5_ForcedAction )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_FORCED_ACTION_OK(TIM5_ForcedAction));
-  
+  assert_param ( IS_TIM5_FORCED_ACTION_OK ( TIM5_ForcedAction ) );
+
   /* Reset the OCM Bits */ /* Configure The Forced output Mode */
-  TIM5->CCMR2  =  (uint8_t)((uint8_t)(TIM5->CCMR2 & (uint8_t)(~TIM5_CCMR_OCM))
-                            | (uint8_t)TIM5_ForcedAction);
+  TIM5->CCMR2  =  ( uint8_t ) ( ( uint8_t ) ( TIM5->CCMR2 & ( uint8_t ) ( ~TIM5_CCMR_OCM ) )
+                                | ( uint8_t ) TIM5_ForcedAction );
 }
 
 /**
@@ -537,14 +537,14 @@ void TIM5_ForcedOC2Config(TIM5_ForcedAction_TypeDef TIM5_ForcedAction)
   *                         OC3REF.
   * @retval None
   */
-void TIM5_ForcedOC3Config(TIM5_ForcedAction_TypeDef TIM5_ForcedAction)
+void TIM5_ForcedOC3Config ( TIM5_ForcedAction_TypeDef TIM5_ForcedAction )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_FORCED_ACTION_OK(TIM5_ForcedAction));
-  
+  assert_param ( IS_TIM5_FORCED_ACTION_OK ( TIM5_ForcedAction ) );
+
   /* Reset the OCM Bits */ /* Configure The Forced output Mode */
-  TIM5->CCMR3  =  (uint8_t)((uint8_t)(TIM5->CCMR3 & (uint8_t)(~TIM5_CCMR_OCM))  
-                            | (uint8_t)TIM5_ForcedAction);
+  TIM5->CCMR3  =  ( uint8_t ) ( ( uint8_t ) ( TIM5->CCMR3 & ( uint8_t ) ( ~TIM5_CCMR_OCM ) )
+                                | ( uint8_t ) TIM5_ForcedAction );
 }
 
 /**
@@ -553,19 +553,19 @@ void TIM5_ForcedOC3Config(TIM5_ForcedAction_TypeDef TIM5_ForcedAction)
   * This parameter can be ENABLE or DISABLE.
   * @retval None
   */
-void TIM5_ARRPreloadConfig(FunctionalState NewState)
+void TIM5_ARRPreloadConfig ( FunctionalState NewState )
 {
   /* Check the parameters */
-  assert_param(IS_FUNCTIONALSTATE_OK(NewState));
-  
+  assert_param ( IS_FUNCTIONALSTATE_OK ( NewState ) );
+
   /* Set or Reset the ARPE Bit */
-  if (NewState != DISABLE)
+  if ( NewState != DISABLE )
   {
     TIM5->CR1 |= TIM5_CR1_ARPE ;
   }
   else
   {
-    TIM5->CR1 &= (uint8_t)(~TIM5_CR1_ARPE) ;
+    TIM5->CR1 &= ( uint8_t ) ( ~TIM5_CR1_ARPE ) ;
   }
 }
 
@@ -575,19 +575,19 @@ void TIM5_ARRPreloadConfig(FunctionalState NewState)
   * This parameter can be ENABLE or DISABLE.
   * @retval None
   */
-void TIM5_OC1PreloadConfig(FunctionalState NewState)
+void TIM5_OC1PreloadConfig ( FunctionalState NewState )
 {
   /* Check the parameters */
-  assert_param(IS_FUNCTIONALSTATE_OK(NewState));
-  
+  assert_param ( IS_FUNCTIONALSTATE_OK ( NewState ) );
+
   /* Set or Reset the OC1PE Bit */
-  if (NewState != DISABLE)
+  if ( NewState != DISABLE )
   {
     TIM5->CCMR1 |= TIM5_CCMR_OCxPE ;
   }
   else
   {
-    TIM5->CCMR1 &= (uint8_t)(~TIM5_CCMR_OCxPE) ;
+    TIM5->CCMR1 &= ( uint8_t ) ( ~TIM5_CCMR_OCxPE ) ;
   }
 }
 
@@ -597,19 +597,19 @@ void TIM5_OC1PreloadConfig(FunctionalState NewState)
   * This parameter can be ENABLE or DISABLE.
   * @retval None
   */
-void TIM5_OC2PreloadConfig(FunctionalState NewState)
+void TIM5_OC2PreloadConfig ( FunctionalState NewState )
 {
   /* Check the parameters */
-  assert_param(IS_FUNCTIONALSTATE_OK(NewState));
-  
+  assert_param ( IS_FUNCTIONALSTATE_OK ( NewState ) );
+
   /* Set or Reset the OC2PE Bit */
-  if (NewState != DISABLE)
+  if ( NewState != DISABLE )
   {
     TIM5->CCMR2 |= TIM5_CCMR_OCxPE ;
   }
   else
   {
-    TIM5->CCMR2 &= (uint8_t)(~TIM5_CCMR_OCxPE) ;
+    TIM5->CCMR2 &= ( uint8_t ) ( ~TIM5_CCMR_OCxPE ) ;
   }
 }
 
@@ -619,19 +619,19 @@ void TIM5_OC2PreloadConfig(FunctionalState NewState)
   * This parameter can be ENABLE or DISABLE.
   * @retval None
   */
-void TIM5_OC3PreloadConfig(FunctionalState NewState)
+void TIM5_OC3PreloadConfig ( FunctionalState NewState )
 {
   /* Check the parameters */
-  assert_param(IS_FUNCTIONALSTATE_OK(NewState));
-  
+  assert_param ( IS_FUNCTIONALSTATE_OK ( NewState ) );
+
   /* Set or Reset the OC3PE Bit */
-  if (NewState != DISABLE)
+  if ( NewState != DISABLE )
   {
     TIM5->CCMR3 |= TIM5_CCMR_OCxPE ;
   }
   else
   {
-    TIM5->CCMR3 &= (uint8_t)(~TIM5_CCMR_OCxPE) ;
+    TIM5->CCMR3 &= ( uint8_t ) ( ~TIM5_CCMR_OCxPE ) ;
   }
 }
 
@@ -645,13 +645,13 @@ void TIM5_OC3PreloadConfig(FunctionalState NewState)
   *                       - TIM5_EVENTSOURCE_CC3: TIM5 Capture Compare 3 Event source
   * @retval None
   */
-void TIM5_GenerateEvent(TIM5_EventSource_TypeDef TIM5_EventSource)
+void TIM5_GenerateEvent ( TIM5_EventSource_TypeDef TIM5_EventSource )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_EVENT_SOURCE_OK(TIM5_EventSource));
-  
+  assert_param ( IS_TIM5_EVENT_SOURCE_OK ( TIM5_EventSource ) );
+
   /* Set the event sources */
-  TIM5->EGR = (uint8_t)TIM5_EventSource;
+  TIM5->EGR = ( uint8_t ) TIM5_EventSource;
 }
 
 /**
@@ -662,20 +662,20 @@ void TIM5_GenerateEvent(TIM5_EventSource_TypeDef TIM5_EventSource)
   *                       - TIM5_OCPOLARITY_HIGH: Output Compare active high
   * @retval None
   */
-void TIM5_OC1PolarityConfig(TIM5_OCPolarity_TypeDef TIM5_OCPolarity)
+void TIM5_OC1PolarityConfig ( TIM5_OCPolarity_TypeDef TIM5_OCPolarity )
 {
-    /* Check the parameters */
-    assert_param(IS_TIM5_OC_POLARITY_OK(TIM5_OCPolarity));
+  /* Check the parameters */
+  assert_param ( IS_TIM5_OC_POLARITY_OK ( TIM5_OCPolarity ) );
 
-    /* Set or Reset the CC1P Bit */
-    if (TIM5_OCPolarity != TIM5_OCPOLARITY_HIGH)
-    {
-        TIM5->CCER1 |= TIM5_CCER1_CC1P ;
-    }
-    else
-    {
-        TIM5->CCER1 &= (uint8_t)(~TIM5_CCER1_CC1P) ;
-    }
+  /* Set or Reset the CC1P Bit */
+  if ( TIM5_OCPolarity != TIM5_OCPOLARITY_HIGH )
+  {
+    TIM5->CCER1 |= TIM5_CCER1_CC1P ;
+  }
+  else
+  {
+    TIM5->CCER1 &= ( uint8_t ) ( ~TIM5_CCER1_CC1P ) ;
+  }
 }
 
 
@@ -687,19 +687,19 @@ void TIM5_OC1PolarityConfig(TIM5_OCPolarity_TypeDef TIM5_OCPolarity)
   *                       - TIM5_OCPOLARITY_HIGH: Output Compare active high
   * @retval None
   */
-void TIM5_OC2PolarityConfig(TIM5_OCPolarity_TypeDef TIM5_OCPolarity)
+void TIM5_OC2PolarityConfig ( TIM5_OCPolarity_TypeDef TIM5_OCPolarity )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_OC_POLARITY_OK(TIM5_OCPolarity));
-  
+  assert_param ( IS_TIM5_OC_POLARITY_OK ( TIM5_OCPolarity ) );
+
   /* Set or Reset the CC2P Bit */
-  if (TIM5_OCPolarity != TIM5_OCPOLARITY_HIGH)
+  if ( TIM5_OCPolarity != TIM5_OCPOLARITY_HIGH )
   {
     TIM5->CCER1 |= TIM5_CCER1_CC2P ;
   }
   else
   {
-    TIM5->CCER1 &= (uint8_t)(~TIM5_CCER1_CC2P) ;
+    TIM5->CCER1 &= ( uint8_t ) ( ~TIM5_CCER1_CC2P ) ;
   }
 }
 
@@ -711,19 +711,19 @@ void TIM5_OC2PolarityConfig(TIM5_OCPolarity_TypeDef TIM5_OCPolarity)
   *                       - TIM5_OCPOLARITY_HIGH: Output Compare active high
   * @retval None
   */
-void TIM5_OC3PolarityConfig(TIM5_OCPolarity_TypeDef TIM5_OCPolarity)
+void TIM5_OC3PolarityConfig ( TIM5_OCPolarity_TypeDef TIM5_OCPolarity )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_OC_POLARITY_OK(TIM5_OCPolarity));
-  
+  assert_param ( IS_TIM5_OC_POLARITY_OK ( TIM5_OCPolarity ) );
+
   /* Set or Reset the CC3P Bit */
-  if (TIM5_OCPolarity != TIM5_OCPOLARITY_HIGH)
+  if ( TIM5_OCPolarity != TIM5_OCPOLARITY_HIGH )
   {
     TIM5->CCER2 |= TIM5_CCER2_CC3P ;
   }
   else
   {
-    TIM5->CCER2 &= (uint8_t)(~TIM5_CCER2_CC3P) ;
+    TIM5->CCER2 &= ( uint8_t ) ( ~TIM5_CCER2_CC3P ) ;
   }
 }
 
@@ -738,47 +738,47 @@ void TIM5_OC3PolarityConfig(TIM5_OCPolarity_TypeDef TIM5_OCPolarity)
   * This parameter can be: ENABLE or DISABLE.
   * @retval None
   */
-void TIM5_CCxCmd(TIM5_Channel_TypeDef TIM5_Channel, FunctionalState NewState)
+void TIM5_CCxCmd ( TIM5_Channel_TypeDef TIM5_Channel, FunctionalState NewState )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_CHANNEL_OK(TIM5_Channel));
-  assert_param(IS_FUNCTIONALSTATE_OK(NewState));
-  
-  if (TIM5_Channel == TIM5_CHANNEL_1)
+  assert_param ( IS_TIM5_CHANNEL_OK ( TIM5_Channel ) );
+  assert_param ( IS_FUNCTIONALSTATE_OK ( NewState ) );
+
+  if ( TIM5_Channel == TIM5_CHANNEL_1 )
   {
     /* Set or Reset the CC1E Bit */
-    if (NewState != DISABLE)
+    if ( NewState != DISABLE )
     {
       TIM5->CCER1 |= TIM5_CCER1_CC1E ;
     }
     else
     {
-      TIM5->CCER1 &= (uint8_t)(~TIM5_CCER1_CC1E) ;
+      TIM5->CCER1 &= ( uint8_t ) ( ~TIM5_CCER1_CC1E ) ;
     }
-    
+
   }
-  else if (TIM5_Channel == TIM5_CHANNEL_2)
+  else if ( TIM5_Channel == TIM5_CHANNEL_2 )
   {
     /* Set or Reset the CC2E Bit */
-    if (NewState != DISABLE)
+    if ( NewState != DISABLE )
     {
       TIM5->CCER1 |= TIM5_CCER1_CC2E;
     }
     else
     {
-      TIM5->CCER1 &= (uint8_t)(~TIM5_CCER1_CC2E) ;
+      TIM5->CCER1 &= ( uint8_t ) ( ~TIM5_CCER1_CC2E ) ;
     }
   }
   else
   {
     /* Set or Reset the CC3E Bit */
-    if (NewState != DISABLE)
+    if ( NewState != DISABLE )
     {
       TIM5->CCER2 |= TIM5_CCER2_CC3E;
     }
     else
     {
-      TIM5->CCER2 &= (uint8_t)(~TIM5_CCER2_CC3E) ;
+      TIM5->CCER2 &= ( uint8_t ) ( ~TIM5_CCER2_CC3E ) ;
     }
   }
 }
@@ -803,38 +803,38 @@ void TIM5_CCxCmd(TIM5_Channel_TypeDef TIM5_Channel, FunctionalState NewState)
   *                       - TIM5_FORCEDACTION_INACTIVE
   * @retval None
   */
-void TIM5_SelectOCxM(TIM5_Channel_TypeDef TIM5_Channel, TIM5_OCMode_TypeDef TIM5_OCMode)
+void TIM5_SelectOCxM ( TIM5_Channel_TypeDef TIM5_Channel, TIM5_OCMode_TypeDef TIM5_OCMode )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_CHANNEL_OK(TIM5_Channel));
-  assert_param(IS_TIM5_OCM_OK(TIM5_OCMode));
-  
-  if (TIM5_Channel == TIM5_CHANNEL_1)
+  assert_param ( IS_TIM5_CHANNEL_OK ( TIM5_Channel ) );
+  assert_param ( IS_TIM5_OCM_OK ( TIM5_OCMode ) );
+
+  if ( TIM5_Channel == TIM5_CHANNEL_1 )
   {
     /* Disable the Channel 1: Reset the CCE Bit */
-    TIM5->CCER1 &= (uint8_t)(~TIM5_CCER1_CC1E);
-    
+    TIM5->CCER1 &= ( uint8_t ) ( ~TIM5_CCER1_CC1E );
+
     /* Reset the Output Compare Bits  Set the Output Compare Mode */
-    TIM5->CCMR1 = (uint8_t)((uint8_t)(TIM5->CCMR1 & (uint8_t)(~TIM5_CCMR_OCM)) 
-                            | (uint8_t)TIM5_OCMode);
+    TIM5->CCMR1 = ( uint8_t ) ( ( uint8_t ) ( TIM5->CCMR1 & ( uint8_t ) ( ~TIM5_CCMR_OCM ) )
+                                | ( uint8_t ) TIM5_OCMode );
   }
-  else if (TIM5_Channel == TIM5_CHANNEL_2)
+  else if ( TIM5_Channel == TIM5_CHANNEL_2 )
   {
     /* Disable the Channel 2: Reset the CCE Bit */
-    TIM5->CCER1 &= (uint8_t)(~TIM5_CCER1_CC2E);
-    
+    TIM5->CCER1 &= ( uint8_t ) ( ~TIM5_CCER1_CC2E );
+
     /* Reset the Output Compare Bits ** Set the Output Compare Mode */
-    TIM5->CCMR2 = (uint8_t)((uint8_t)(TIM5->CCMR2 & (uint8_t)(~TIM5_CCMR_OCM))
-                            | (uint8_t)TIM5_OCMode);
+    TIM5->CCMR2 = ( uint8_t ) ( ( uint8_t ) ( TIM5->CCMR2 & ( uint8_t ) ( ~TIM5_CCMR_OCM ) )
+                                | ( uint8_t ) TIM5_OCMode );
   }
   else
   {
     /* Disable the Channel 3: Reset the CCE Bit */
-    TIM5->CCER2 &= (uint8_t)(~TIM5_CCER2_CC3E);
-    
+    TIM5->CCER2 &= ( uint8_t ) ( ~TIM5_CCER2_CC3E );
+
     /* Reset the Output Compare Bits ** Set the Output Compare Mode */
-    TIM5->CCMR3 = (uint8_t)((uint8_t)(TIM5->CCMR3 & (uint8_t)(~TIM5_CCMR_OCM))
-                            | (uint8_t)TIM5_OCMode);
+    TIM5->CCMR3 = ( uint8_t ) ( ( uint8_t ) ( TIM5->CCMR3 & ( uint8_t ) ( ~TIM5_CCMR_OCM ) )
+                                | ( uint8_t ) TIM5_OCMode );
   }
 }
 
@@ -844,11 +844,11 @@ void TIM5_SelectOCxM(TIM5_Channel_TypeDef TIM5_Channel, TIM5_OCMode_TypeDef TIM5
   * This parameter is between 0x0000 and 0xFFFF.
   * @retval None
   */
-void TIM5_SetCounter(uint16_t Counter)
+void TIM5_SetCounter ( uint16_t Counter )
 {
   /* Set the Counter Register value */
-  TIM5->CNTRH = (uint8_t)(Counter >> 8);
-  TIM5->CNTRL = (uint8_t)(Counter);
+  TIM5->CNTRH = ( uint8_t ) ( Counter >> 8 );
+  TIM5->CNTRL = ( uint8_t ) ( Counter );
 }
 
 /**
@@ -857,11 +857,11 @@ void TIM5_SetCounter(uint16_t Counter)
   * This parameter is between 0x0000 and 0xFFFF.
   * @retval None
   */
-void TIM5_SetAutoreload(uint16_t Autoreload)
+void TIM5_SetAutoreload ( uint16_t Autoreload )
 {
   /* Set the Autoreload Register value */
-  TIM5->ARRH = (uint8_t)(Autoreload >> 8);
-  TIM5->ARRL = (uint8_t)(Autoreload);
+  TIM5->ARRH = ( uint8_t ) ( Autoreload >> 8 );
+  TIM5->ARRL = ( uint8_t ) ( Autoreload );
 }
 
 /**
@@ -870,11 +870,11 @@ void TIM5_SetAutoreload(uint16_t Autoreload)
   * This parameter is between 0x0000 and 0xFFFF.
   * @retval None
   */
-void TIM5_SetCompare1(uint16_t Compare1)
+void TIM5_SetCompare1 ( uint16_t Compare1 )
 {
   /* Set the Capture Compare1 Register value */
-  TIM5->CCR1H = (uint8_t)(Compare1 >> 8);
-  TIM5->CCR1L = (uint8_t)(Compare1);
+  TIM5->CCR1H = ( uint8_t ) ( Compare1 >> 8 );
+  TIM5->CCR1L = ( uint8_t ) ( Compare1 );
 }
 
 /**
@@ -883,11 +883,11 @@ void TIM5_SetCompare1(uint16_t Compare1)
   * This parameter is between 0x0000 and 0xFFFF.
   * @retval None
   */
-void TIM5_SetCompare2(uint16_t Compare2)
+void TIM5_SetCompare2 ( uint16_t Compare2 )
 {
   /* Set the Capture Compare2 Register value */
-  TIM5->CCR2H = (uint8_t)(Compare2 >> 8);
-  TIM5->CCR2L = (uint8_t)(Compare2);
+  TIM5->CCR2H = ( uint8_t ) ( Compare2 >> 8 );
+  TIM5->CCR2L = ( uint8_t ) ( Compare2 );
 }
 
 /**
@@ -896,11 +896,11 @@ void TIM5_SetCompare2(uint16_t Compare2)
   * This parameter is between 0x0000 and 0xFFFF.
   * @retval None
   */
-void TIM5_SetCompare3(uint16_t Compare3)
+void TIM5_SetCompare3 ( uint16_t Compare3 )
 {
   /* Set the Capture Compare3 Register value */
-  TIM5->CCR3H = (uint8_t)(Compare3 >> 8);
-  TIM5->CCR3L = (uint8_t)(Compare3);
+  TIM5->CCR3H = ( uint8_t ) ( Compare3 >> 8 );
+  TIM5->CCR3L = ( uint8_t ) ( Compare3 );
 }
 
 /**
@@ -913,14 +913,14 @@ void TIM5_SetCompare3(uint16_t Compare3)
   *                       - TIM5_ICPSC_DIV8: capture is done once every 8 events
   * @retval None
   */
-void TIM5_SetIC1Prescaler(TIM5_ICPSC_TypeDef TIM5_IC1Prescaler)
+void TIM5_SetIC1Prescaler ( TIM5_ICPSC_TypeDef TIM5_IC1Prescaler )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_IC_PRESCALER_OK(TIM5_IC1Prescaler));
-  
+  assert_param ( IS_TIM5_IC_PRESCALER_OK ( TIM5_IC1Prescaler ) );
+
   /* Reset the IC1PSC Bits */ /* Set the IC1PSC value */
-  TIM5->CCMR1 = (uint8_t)((uint8_t)(TIM5->CCMR1 & (uint8_t)(~TIM5_CCMR_ICxPSC))|
-                          (uint8_t)TIM5_IC1Prescaler);
+  TIM5->CCMR1 = ( uint8_t ) ( ( uint8_t ) ( TIM5->CCMR1 & ( uint8_t ) ( ~TIM5_CCMR_ICxPSC ) ) |
+                              ( uint8_t ) TIM5_IC1Prescaler );
 }
 
 /**
@@ -933,14 +933,14 @@ void TIM5_SetIC1Prescaler(TIM5_ICPSC_TypeDef TIM5_IC1Prescaler)
   *                       - TIM5_ICPSC_DIV8: capture is done once every 8 events
   * @retval None
   */
-void TIM5_SetIC2Prescaler(TIM5_ICPSC_TypeDef TIM5_IC2Prescaler)
+void TIM5_SetIC2Prescaler ( TIM5_ICPSC_TypeDef TIM5_IC2Prescaler )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_IC_PRESCALER_OK(TIM5_IC2Prescaler));
-  
+  assert_param ( IS_TIM5_IC_PRESCALER_OK ( TIM5_IC2Prescaler ) );
+
   /* Reset the IC1PSC Bits */ /* Set the IC1PSC value */
-  TIM5->CCMR2 = (uint8_t)((uint8_t)(TIM5->CCMR2 & (uint8_t)(~TIM5_CCMR_ICxPSC))
-                          | (uint8_t)TIM5_IC2Prescaler);
+  TIM5->CCMR2 = ( uint8_t ) ( ( uint8_t ) ( TIM5->CCMR2 & ( uint8_t ) ( ~TIM5_CCMR_ICxPSC ) )
+                              | ( uint8_t ) TIM5_IC2Prescaler );
 }
 
 /**
@@ -953,13 +953,13 @@ void TIM5_SetIC2Prescaler(TIM5_ICPSC_TypeDef TIM5_IC2Prescaler)
   *                       - TIM5_ICPSC_DIV8: capture is done once every 8 events
   * @retval None
   */
-void TIM5_SetIC3Prescaler(TIM5_ICPSC_TypeDef TIM5_IC3Prescaler)
+void TIM5_SetIC3Prescaler ( TIM5_ICPSC_TypeDef TIM5_IC3Prescaler )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_IC_PRESCALER_OK(TIM5_IC3Prescaler));
+  assert_param ( IS_TIM5_IC_PRESCALER_OK ( TIM5_IC3Prescaler ) );
   /* Reset the IC1PSC Bits */ /* Set the IC1PSC value */
-  TIM5->CCMR3 = (uint8_t)((uint8_t)(TIM5->CCMR3 & (uint8_t)(~TIM5_CCMR_ICxPSC)) |
-                          (uint8_t)TIM5_IC3Prescaler);
+  TIM5->CCMR3 = ( uint8_t ) ( ( uint8_t ) ( TIM5->CCMR3 & ( uint8_t ) ( ~TIM5_CCMR_ICxPSC ) ) |
+                              ( uint8_t ) TIM5_IC3Prescaler );
 }
 
 /**
@@ -967,14 +967,14 @@ void TIM5_SetIC3Prescaler(TIM5_ICPSC_TypeDef TIM5_IC3Prescaler)
   * @param  None
   * @retval Capture Compare 1 Register value.
   */
-uint16_t TIM5_GetCapture1(void)
+uint16_t TIM5_GetCapture1 ( void )
 {
-  uint16_t temp = 0; 
-  
-  temp = ((uint16_t)TIM5->CCR1H << 8); 
-  
+  uint16_t temp = 0;
+
+  temp = ( ( uint16_t ) TIM5->CCR1H << 8 );
+
   /* Get the Capture 1 Register value */
-  return (uint16_t)(temp | (uint16_t)(TIM5->CCR1L));
+  return ( uint16_t ) ( temp | ( uint16_t ) ( TIM5->CCR1L ) );
 }
 
 /**
@@ -982,14 +982,14 @@ uint16_t TIM5_GetCapture1(void)
   * @param  None
   * @retval Capture Compare 2 Register value.
   */
-uint16_t TIM5_GetCapture2(void)
+uint16_t TIM5_GetCapture2 ( void )
 {
-  uint16_t temp = 0; 
-  
-  temp = ((uint16_t)TIM5->CCR2H << 8);  
-  
+  uint16_t temp = 0;
+
+  temp = ( ( uint16_t ) TIM5->CCR2H << 8 );
+
   /* Get the Capture 2 Register value */
-  return (uint16_t)(temp | (uint16_t)(TIM5->CCR2L));
+  return ( uint16_t ) ( temp | ( uint16_t ) ( TIM5->CCR2L ) );
 }
 
 /**
@@ -997,13 +997,13 @@ uint16_t TIM5_GetCapture2(void)
   * @param  None
   * @retval Capture Compare 3 Register value.
   */
-uint16_t TIM5_GetCapture3(void)
+uint16_t TIM5_GetCapture3 ( void )
 {
-  uint16_t temp = 0; 
-  
-  temp = ((uint16_t)TIM5->CCR3H << 8);
+  uint16_t temp = 0;
+
+  temp = ( ( uint16_t ) TIM5->CCR3H << 8 );
   /* Get the Capture 1 Register value */
-  return (uint16_t)(temp | (uint16_t)(TIM5->CCR3L));
+  return ( uint16_t ) ( temp | ( uint16_t ) ( TIM5->CCR3L ) );
 }
 
 /**
@@ -1011,13 +1011,13 @@ uint16_t TIM5_GetCapture3(void)
   * @param  None
   * @retval Counter Register value.
   */
-uint16_t TIM5_GetCounter(void)
+uint16_t TIM5_GetCounter ( void )
 {
   uint16_t tmpcntr = 0;
-  
-  tmpcntr = ((uint16_t)TIM5->CNTRH << 8); 
+
+  tmpcntr = ( ( uint16_t ) TIM5->CNTRH << 8 );
   /* Get the Counter Register value */
-  return (uint16_t)(tmpcntr | (uint16_t)(TIM5->CNTRL));
+  return ( uint16_t ) ( tmpcntr | ( uint16_t ) ( TIM5->CNTRL ) );
 }
 
 /**
@@ -1025,10 +1025,10 @@ uint16_t TIM5_GetCounter(void)
   * @param  None
   * @retval Prescaler Register configuration value  @ref TIM5_Prescaler_TypeDef .
   */
-TIM5_Prescaler_TypeDef TIM5_GetPrescaler(void)
+TIM5_Prescaler_TypeDef TIM5_GetPrescaler ( void )
 {
   /* Get the Prescaler Register value */
-  return (TIM5_Prescaler_TypeDef)(TIM5->PSCR);
+  return ( TIM5_Prescaler_TypeDef ) ( TIM5->PSCR );
 }
 
 /**
@@ -1044,18 +1044,18 @@ TIM5_Prescaler_TypeDef TIM5_GetPrescaler(void)
   *                       - TIM5_FLAG_CC3OF: TIM5 Capture Compare 3 overcapture Flag
   * @retval FlagStatus The new state of TIM5_FLAG (SET or RESET).
   */
-FlagStatus TIM5_GetFlagStatus(TIM5_FLAG_TypeDef TIM5_FLAG)
+FlagStatus TIM5_GetFlagStatus ( TIM5_FLAG_TypeDef TIM5_FLAG )
 {
   FlagStatus bitstatus = RESET;
   uint8_t tim5_flag_l, tim5_flag_h;
-  
+
   /* Check the parameters */
-  assert_param(IS_TIM5_GET_FLAG_OK(TIM5_FLAG));
-  
-  tim5_flag_l= (uint8_t)(TIM5->SR1 & (uint8_t)TIM5_FLAG);
-  tim5_flag_h= (uint8_t)((uint16_t)TIM5_FLAG >> 8);
-  
-  if (((tim5_flag_l)|(uint8_t)(TIM5->SR2 & tim5_flag_h)) != RESET )
+  assert_param ( IS_TIM5_GET_FLAG_OK ( TIM5_FLAG ) );
+
+  tim5_flag_l = ( uint8_t ) ( TIM5->SR1 & ( uint8_t ) TIM5_FLAG );
+  tim5_flag_h = ( uint8_t ) ( ( uint16_t ) TIM5_FLAG >> 8 );
+
+  if ( ( ( tim5_flag_l ) | ( uint8_t ) ( TIM5->SR2 & tim5_flag_h ) ) != RESET )
   {
     bitstatus = SET;
   }
@@ -1063,7 +1063,8 @@ FlagStatus TIM5_GetFlagStatus(TIM5_FLAG_TypeDef TIM5_FLAG)
   {
     bitstatus = RESET;
   }
-  return (FlagStatus)bitstatus;
+
+  return ( FlagStatus ) bitstatus;
 }
 
 /**
@@ -1079,14 +1080,14 @@ FlagStatus TIM5_GetFlagStatus(TIM5_FLAG_TypeDef TIM5_FLAG)
   *                       - TIM5_FLAG_CC3OF: TIM5 Capture Compare 3 overcapture Flag
   * @retval None.
   */
-void TIM5_ClearFlag(TIM5_FLAG_TypeDef TIM5_FLAG)
+void TIM5_ClearFlag ( TIM5_FLAG_TypeDef TIM5_FLAG )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_CLEAR_FLAG_OK(TIM5_FLAG));
-  
+  assert_param ( IS_TIM5_CLEAR_FLAG_OK ( TIM5_FLAG ) );
+
   /* Clear the flags (rc_w0) clear this bit by writing 0. Writing ‘1’ has no effect*/
-  TIM5->SR1 = (uint8_t)(~((uint8_t)(TIM5_FLAG)));
-  TIM5->SR2 &= (uint8_t)(~((uint8_t)((uint16_t)TIM5_FLAG >> 8)));
+  TIM5->SR1 = ( uint8_t ) ( ~ ( ( uint8_t ) ( TIM5_FLAG ) ) );
+  TIM5->SR2 &= ( uint8_t ) ( ~ ( ( uint8_t ) ( ( uint16_t ) TIM5_FLAG >> 8 ) ) );
 }
 
 /**
@@ -1100,19 +1101,19 @@ void TIM5_ClearFlag(TIM5_FLAG_TypeDef TIM5_FLAG)
   * @retval ITStatus The new state of the TIM5_IT(SET or RESET).
   */
 
-ITStatus TIM5_GetITStatus(TIM5_IT_TypeDef TIM5_IT)
+ITStatus TIM5_GetITStatus ( TIM5_IT_TypeDef TIM5_IT )
 {
   ITStatus bitstatus = RESET;
   uint8_t TIM5_itStatus = 0, TIM5_itEnable = 0;
-  
+
   /* Check the parameters */
-  assert_param(IS_TIM5_GET_IT_OK(TIM5_IT));
-  
-  TIM5_itStatus = (uint8_t)(TIM5->SR1 & TIM5_IT);
-  
-  TIM5_itEnable = (uint8_t)(TIM5->IER & TIM5_IT);
-  
-  if ((TIM5_itStatus != (uint8_t)RESET ) && (TIM5_itEnable != (uint8_t)RESET ))
+  assert_param ( IS_TIM5_GET_IT_OK ( TIM5_IT ) );
+
+  TIM5_itStatus = ( uint8_t ) ( TIM5->SR1 & TIM5_IT );
+
+  TIM5_itEnable = ( uint8_t ) ( TIM5->IER & TIM5_IT );
+
+  if ( ( TIM5_itStatus != ( uint8_t ) RESET ) && ( TIM5_itEnable != ( uint8_t ) RESET ) )
   {
     bitstatus = SET;
   }
@@ -1120,7 +1121,8 @@ ITStatus TIM5_GetITStatus(TIM5_IT_TypeDef TIM5_IT)
   {
     bitstatus = RESET;
   }
-  return (ITStatus)(bitstatus);
+
+  return ( ITStatus ) ( bitstatus );
 }
 
 /**
@@ -1133,13 +1135,13 @@ ITStatus TIM5_GetITStatus(TIM5_IT_TypeDef TIM5_IT)
   *                       - TIM5_IT_CC3: TIM5 Capture Compare 3 Interrupt source
   * @retval None.
   */
-void TIM5_ClearITPendingBit(TIM5_IT_TypeDef TIM5_IT)
+void TIM5_ClearITPendingBit ( TIM5_IT_TypeDef TIM5_IT )
 {
   /* Check the parameters */
-  assert_param(IS_TIM5_IT_OK(TIM5_IT));
-  
+  assert_param ( IS_TIM5_IT_OK ( TIM5_IT ) );
+
   /* Clear the IT pending Bit */
-  TIM5->SR1 = (uint8_t)(~TIM5_IT);
+  TIM5->SR1 = ( uint8_t ) ( ~TIM5_IT );
 }
 
 /**
@@ -1158,26 +1160,27 @@ void TIM5_ClearITPendingBit(TIM5_IT_TypeDef TIM5_IT)
   * This parameter must be a value between 0x00 and 0x0F.
   * @retval None
   */
-static void TI1_Config(uint8_t TIM5_ICPolarity,
-                       uint8_t TIM5_ICSelection,
-                       uint8_t TIM5_ICFilter)
+static void TI1_Config ( uint8_t TIM5_ICPolarity,
+                         uint8_t TIM5_ICSelection,
+                         uint8_t TIM5_ICFilter )
 {
   /* Disable the Channel 1: Reset the CCE Bit */
-  TIM5->CCER1 &= (uint8_t)(~TIM5_CCER1_CC1E);
-  
+  TIM5->CCER1 &= ( uint8_t ) ( ~TIM5_CCER1_CC1E );
+
   /* Select the Input and set the filter */
-  TIM5->CCMR1  = (uint8_t)((uint8_t)(TIM5->CCMR1 & (uint8_t)(~( TIM5_CCMR_CCxS | TIM5_CCMR_ICxF )))
-                           | (uint8_t)(( (TIM5_ICSelection)) | ((uint8_t)( TIM5_ICFilter << 4))));
-  
+  TIM5->CCMR1  = ( uint8_t ) ( ( uint8_t ) ( TIM5->CCMR1 & ( uint8_t ) ( ~ ( TIM5_CCMR_CCxS | TIM5_CCMR_ICxF ) ) )
+                               | ( uint8_t ) ( ( ( TIM5_ICSelection ) ) | ( ( uint8_t ) ( TIM5_ICFilter << 4 ) ) ) );
+
   /* Select the Polarity */
-  if (TIM5_ICPolarity != TIM5_ICPOLARITY_RISING)
+  if ( TIM5_ICPolarity != TIM5_ICPOLARITY_RISING )
   {
     TIM5->CCER1 |= TIM5_CCER1_CC1P ;
   }
   else
   {
-    TIM5->CCER1 &= (uint8_t)(~TIM5_CCER1_CC1P) ;
+    TIM5->CCER1 &= ( uint8_t ) ( ~TIM5_CCER1_CC1P ) ;
   }
+
   /* Set the CCE Bit */
   TIM5->CCER1 |=  TIM5_CCER1_CC1E;
 }
@@ -1198,28 +1201,28 @@ static void TI1_Config(uint8_t TIM5_ICPolarity,
   * This parameter must be a value between 0x00 and 0x0F.
   * @retval None
   */
-static void TI2_Config(uint8_t TIM5_ICPolarity,
-                       uint8_t TIM5_ICSelection,
-                       uint8_t TIM5_ICFilter)
+static void TI2_Config ( uint8_t TIM5_ICPolarity,
+                         uint8_t TIM5_ICSelection,
+                         uint8_t TIM5_ICFilter )
 {
   /* Disable the Channel 2: Reset the CCE Bit */
-  TIM5->CCER1 &=  (uint8_t)(~TIM5_CCER1_CC2E);
-  
+  TIM5->CCER1 &=  ( uint8_t ) ( ~TIM5_CCER1_CC2E );
+
   /* Select the Input and set the filter */
-  TIM5->CCMR2  = (uint8_t)((uint8_t)(TIM5->CCMR2 & (uint8_t)(~( TIM5_CCMR_CCxS | TIM5_CCMR_ICxF)))
-                           | (uint8_t)(( (TIM5_ICSelection)) | ((uint8_t)( TIM5_ICFilter << 4))));
-  
-  
+  TIM5->CCMR2  = ( uint8_t ) ( ( uint8_t ) ( TIM5->CCMR2 & ( uint8_t ) ( ~ ( TIM5_CCMR_CCxS | TIM5_CCMR_ICxF ) ) )
+                               | ( uint8_t ) ( ( ( TIM5_ICSelection ) ) | ( ( uint8_t ) ( TIM5_ICFilter << 4 ) ) ) );
+
+
   /* Select the Polarity */
-  if (TIM5_ICPolarity != TIM5_ICPOLARITY_RISING)
+  if ( TIM5_ICPolarity != TIM5_ICPOLARITY_RISING )
   {
     TIM5->CCER1 |= TIM5_CCER1_CC2P ;
   }
   else
   {
-    TIM5->CCER1 &= (uint8_t)(~TIM5_CCER1_CC2P) ;
+    TIM5->CCER1 &= ( uint8_t ) ( ~TIM5_CCER1_CC2P ) ;
   }
-  
+
   /* Set the CCE Bit */
   TIM5->CCER1 |=  TIM5_CCER1_CC2E;
 }
@@ -1238,26 +1241,27 @@ static void TI2_Config(uint8_t TIM5_ICPolarity,
   * This parameter must be a value between 0x00 and 0x0F.
   * @retval None
   */
-static void TI3_Config(uint8_t TIM5_ICPolarity, uint8_t TIM5_ICSelection,
-                       uint8_t TIM5_ICFilter)
+static void TI3_Config ( uint8_t TIM5_ICPolarity, uint8_t TIM5_ICSelection,
+                         uint8_t TIM5_ICFilter )
 {
   /* Disable the Channel 3: Reset the CCE Bit */
-  TIM5->CCER2 &=  (uint8_t)(~TIM5_CCER2_CC3E);
-  
+  TIM5->CCER2 &=  ( uint8_t ) ( ~TIM5_CCER2_CC3E );
+
   /* Select the Input and set the filter */
-  TIM5->CCMR3 = (uint8_t)((uint8_t)(TIM5->CCMR3 & (uint8_t)(~( TIM5_CCMR_CCxS | TIM5_CCMR_ICxF))) 
-                          | (uint8_t)(( (TIM5_ICSelection)) | ((uint8_t)( TIM5_ICFilter << 4))));
-  
-  
+  TIM5->CCMR3 = ( uint8_t ) ( ( uint8_t ) ( TIM5->CCMR3 & ( uint8_t ) ( ~ ( TIM5_CCMR_CCxS | TIM5_CCMR_ICxF ) ) )
+                              | ( uint8_t ) ( ( ( TIM5_ICSelection ) ) | ( ( uint8_t ) ( TIM5_ICFilter << 4 ) ) ) );
+
+
   /* Select the Polarity */
-  if (TIM5_ICPolarity != TIM5_ICPOLARITY_RISING)
+  if ( TIM5_ICPolarity != TIM5_ICPOLARITY_RISING )
   {
     TIM5->CCER2 |= TIM5_CCER2_CC3P ;
   }
   else
   {
-    TIM5->CCER2 &= (uint8_t)(~TIM5_CCER2_CC3P) ;
+    TIM5->CCER2 &= ( uint8_t ) ( ~TIM5_CCER2_CC3P ) ;
   }
+
   /* Set the CCE Bit */
   TIM5->CCER2 |=  TIM5_CCER2_CC3E;
 }
@@ -1265,13 +1269,13 @@ static void TI3_Config(uint8_t TIM5_ICPolarity, uint8_t TIM5_ICSelection,
 /**
   * @brief  Enables the TIM5 internal Clock.
   * @par Parameters:
-	* None
+  * None
   * @retval None
   */
-void TIM5_InternalClockConfig(void)
+void TIM5_InternalClockConfig ( void )
 {
   /* Disable slave mode to clock the prescaler directly with the internal clock */
-  TIM5->SMCR &=  (uint8_t)(~TIM5_SMCR_SMS);
+  TIM5->SMCR &=  ( uint8_t ) ( ~TIM5_SMCR_SMS );
 }
 
 /**
@@ -1280,21 +1284,21 @@ void TIM5_InternalClockConfig(void)
   * This parameter can be one of the @ref TIM5_TRGOSource_TypeDef enumeration.
   * @retval None
   */
-void TIM5_SelectOutputTrigger(TIM5_TRGOSource_TypeDef TIM5_TRGOSource)
+void TIM5_SelectOutputTrigger ( TIM5_TRGOSource_TypeDef TIM5_TRGOSource )
 {
   uint8_t tmpcr2 = 0;
-  
+
   /* Check the parameters */
-  assert_param(IS_TIM5_TRGO_SOURCE_OK(TIM5_TRGOSource));
-  
+  assert_param ( IS_TIM5_TRGO_SOURCE_OK ( TIM5_TRGOSource ) );
+
   tmpcr2 = TIM5->CR2;
-  
+
   /* Reset the MMS Bits */
-  tmpcr2 &= (uint8_t)(~TIM5_CR2_MMS);
-  
+  tmpcr2 &= ( uint8_t ) ( ~TIM5_CR2_MMS );
+
   /* Select the TRGO source */
-  tmpcr2 |=  (uint8_t)TIM5_TRGOSource;
-  
+  tmpcr2 |=  ( uint8_t ) TIM5_TRGOSource;
+
   TIM5->CR2 = tmpcr2;
 }
 
@@ -1304,21 +1308,21 @@ void TIM5_SelectOutputTrigger(TIM5_TRGOSource_TypeDef TIM5_TRGOSource)
   * This parameter can be one of the @ref TIM5_SlaveMode_TypeDef enumeration.
   * @retval None
   */
-void TIM5_SelectSlaveMode(TIM5_SlaveMode_TypeDef TIM5_SlaveMode)
+void TIM5_SelectSlaveMode ( TIM5_SlaveMode_TypeDef TIM5_SlaveMode )
 {
   uint8_t tmpsmcr = 0;
-  
+
   /* Check the parameters */
-  assert_param(IS_TIM5_SLAVE_MODE_OK(TIM5_SlaveMode));
-  
+  assert_param ( IS_TIM5_SLAVE_MODE_OK ( TIM5_SlaveMode ) );
+
   tmpsmcr = TIM5->SMCR;
-  
+
   /* Reset the SMS Bits */
-  tmpsmcr &= (uint8_t)(~TIM5_SMCR_SMS);
-  
+  tmpsmcr &= ( uint8_t ) ( ~TIM5_SMCR_SMS );
+
   /* Select the Slave Mode */
-  tmpsmcr |= (uint8_t)TIM5_SlaveMode;
-  
+  tmpsmcr |= ( uint8_t ) TIM5_SlaveMode;
+
   TIM5->SMCR = tmpsmcr;
 }
 
@@ -1328,20 +1332,20 @@ void TIM5_SelectSlaveMode(TIM5_SlaveMode_TypeDef TIM5_SlaveMode)
   * This parameter can be one of the @ref TIM5_TS_TypeDef enumeration.
   * @retval None
   */
-void TIM5_SelectInputTrigger(TIM5_TS_TypeDef TIM5_InputTriggerSource)
+void TIM5_SelectInputTrigger ( TIM5_TS_TypeDef TIM5_InputTriggerSource )
 {
   uint8_t tmpsmcr = 0;
-  
+
   /* Check the parameters */
-  assert_param(IS_TIM5_TRIGGER_SELECTION_OK(TIM5_InputTriggerSource));
-  
+  assert_param ( IS_TIM5_TRIGGER_SELECTION_OK ( TIM5_InputTriggerSource ) );
+
   tmpsmcr = TIM5->SMCR;
-  
+
   /* Select the Trigger Source */
-  tmpsmcr &= (uint8_t)(~TIM5_SMCR_TS);
-  tmpsmcr |= (uint8_t)TIM5_InputTriggerSource;
-  
-  TIM5->SMCR = (uint8_t)tmpsmcr;
+  tmpsmcr &= ( uint8_t ) ( ~TIM5_SMCR_TS );
+  tmpsmcr |= ( uint8_t ) TIM5_InputTriggerSource;
+
+  TIM5->SMCR = ( uint8_t ) tmpsmcr;
 }
 
 /**
@@ -1354,52 +1358,52 @@ void TIM5_SelectInputTrigger(TIM5_TS_TypeDef TIM5_InputTriggerSource)
   * This parameter can be one of the @ref TIM5_ICPolarity_TypeDef enumeration.
   * @retval None
   */
-void TIM5_EncoderInterfaceConfig(TIM5_EncoderMode_TypeDef TIM5_EncoderMode,
-                                 TIM5_ICPolarity_TypeDef TIM5_IC1Polarity,
-                                 TIM5_ICPolarity_TypeDef TIM5_IC2Polarity)
+void TIM5_EncoderInterfaceConfig ( TIM5_EncoderMode_TypeDef TIM5_EncoderMode,
+                                   TIM5_ICPolarity_TypeDef TIM5_IC1Polarity,
+                                   TIM5_ICPolarity_TypeDef TIM5_IC2Polarity )
 {
   uint8_t tmpsmcr = 0;
   uint8_t tmpccmr1 = 0;
   uint8_t tmpccmr2 = 0;
-  
+
   /* Check the parameters */
-  assert_param(IS_TIM5_ENCODER_MODE_OK(TIM5_EncoderMode));
-  assert_param(IS_TIM5_IC_POLARITY_OK(TIM5_IC1Polarity));
-  assert_param(IS_TIM5_IC_POLARITY_OK(TIM5_IC2Polarity));
-  
+  assert_param ( IS_TIM5_ENCODER_MODE_OK ( TIM5_EncoderMode ) );
+  assert_param ( IS_TIM5_IC_POLARITY_OK ( TIM5_IC1Polarity ) );
+  assert_param ( IS_TIM5_IC_POLARITY_OK ( TIM5_IC2Polarity ) );
+
   tmpsmcr = TIM5->SMCR;
   tmpccmr1 = TIM5->CCMR1;
   tmpccmr2 = TIM5->CCMR2;
-  
+
   /* Set the encoder Mode */
-  tmpsmcr &= (uint8_t)(TIM5_SMCR_MSM | TIM5_SMCR_TS)  ;
-  tmpsmcr |= (uint8_t)TIM5_EncoderMode;
-  
+  tmpsmcr &= ( uint8_t ) ( TIM5_SMCR_MSM | TIM5_SMCR_TS )  ;
+  tmpsmcr |= ( uint8_t ) TIM5_EncoderMode;
+
   /* Select the Capture Compare 1 and the Capture Compare 2 as input */
-  tmpccmr1 &= (uint8_t)(~TIM5_CCMR_CCxS);
-  tmpccmr2 &= (uint8_t)(~TIM5_CCMR_CCxS);
+  tmpccmr1 &= ( uint8_t ) ( ~TIM5_CCMR_CCxS );
+  tmpccmr2 &= ( uint8_t ) ( ~TIM5_CCMR_CCxS );
   tmpccmr1 |= TIM5_CCMR_TIxDirect_Set;
   tmpccmr2 |= TIM5_CCMR_TIxDirect_Set;
-  
+
   /* Set the TI1 and the TI2 Polarities */
-  if (TIM5_IC1Polarity == TIM5_ICPOLARITY_FALLING)
+  if ( TIM5_IC1Polarity == TIM5_ICPOLARITY_FALLING )
   {
     TIM5->CCER1 |= TIM5_CCER1_CC1P ;
   }
   else
   {
-    TIM5->CCER1 &= (uint8_t)(~TIM5_CCER1_CC1P) ;
+    TIM5->CCER1 &= ( uint8_t ) ( ~TIM5_CCER1_CC1P ) ;
   }
-  
-  if (TIM5_IC2Polarity == TIM5_ICPOLARITY_FALLING)
+
+  if ( TIM5_IC2Polarity == TIM5_ICPOLARITY_FALLING )
   {
     TIM5->CCER1 |= TIM5_CCER1_CC2P ;
   }
   else
   {
-    TIM5->CCER1 &= (uint8_t)(~TIM5_CCER1_CC2P) ;
+    TIM5->CCER1 &= ( uint8_t ) ( ~TIM5_CCER1_CC2P ) ;
   }
-  
+
   TIM5->SMCR = tmpsmcr;
   TIM5->CCMR1 = tmpccmr1;
   TIM5->CCMR2 = tmpccmr2;

@@ -16,8 +16,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -43,8 +43,8 @@
   */
 typedef enum
 {
-  I2C_DUTYCYCLE_2    = (uint8_t)0x00,  /*!< Fast mode Tlow/THigh = 2 */
-  I2C_DUTYCYCLE_16_9 = (uint8_t)0x40   /*!< Fast mode Tlow/Thigh = 16/9 */
+  I2C_DUTYCYCLE_2    = ( uint8_t ) 0x00, /*!< Fast mode Tlow/THigh = 2 */
+  I2C_DUTYCYCLE_16_9 = ( uint8_t ) 0x40 /*!< Fast mode Tlow/Thigh = 16/9 */
 } I2C_DutyCycle_TypeDef;
 
 /**
@@ -52,9 +52,9 @@ typedef enum
   */
 typedef enum
 {
-  I2C_ACK_NONE = (uint8_t)0x00,  /*!< No acknowledge */
-  I2C_ACK_CURR = (uint8_t)0x01,  /*!< Acknowledge on the current byte */
-  I2C_ACK_NEXT = (uint8_t)0x02   /*!< Acknowledge on the next byte */
+  I2C_ACK_NONE = ( uint8_t ) 0x00, /*!< No acknowledge */
+  I2C_ACK_CURR = ( uint8_t ) 0x01, /*!< Acknowledge on the current byte */
+  I2C_ACK_NEXT = ( uint8_t ) 0x02 /*!< Acknowledge on the next byte */
 } I2C_Ack_TypeDef;
 
 /**
@@ -62,8 +62,8 @@ typedef enum
   */
 typedef enum
 {
-  I2C_ADDMODE_7BIT  = (uint8_t)0x00,  /*!< 7-bit slave address (10-bit address not acknowledged) */
-  I2C_ADDMODE_10BIT = (uint8_t)0x80   /*!< 10-bit slave address (7-bit address not acknowledged) */
+  I2C_ADDMODE_7BIT  = ( uint8_t ) 0x00, /*!< 7-bit slave address (10-bit address not acknowledged) */
+  I2C_ADDMODE_10BIT = ( uint8_t ) 0x80 /*!< 10-bit slave address (7-bit address not acknowledged) */
 } I2C_AddMode_TypeDef;
 
 /**
@@ -72,9 +72,9 @@ typedef enum
   */
 typedef enum
 {
-    I2C_IT_ERR     = (uint8_t)0x01, 	/*!< Error Interruption */
-    I2C_IT_EVT     = (uint8_t)0x02, 	/*!< Event Interruption */
-    I2C_IT_BUF     = (uint8_t)0x04 	/*!< Buffer Interruption */
+  I2C_IT_ERR     = ( uint8_t ) 0x01, /*!< Error Interruption */
+  I2C_IT_EVT     = ( uint8_t ) 0x02, /*!< Event Interruption */
+  I2C_IT_BUF     = ( uint8_t ) 0x04 /*!< Buffer Interruption */
 } I2C_IT_TypeDef;
 
 /**
@@ -83,8 +83,8 @@ typedef enum
   */
 typedef enum
 {
-  I2C_DIRECTION_TX = (uint8_t)0x00,  /*!< Transmission direction */
-  I2C_DIRECTION_RX = (uint8_t)0x01   /*!< Reception direction */
+  I2C_DIRECTION_TX = ( uint8_t ) 0x00, /*!< Transmission direction */
+  I2C_DIRECTION_RX = ( uint8_t ) 0x01 /*!< Reception direction */
 } I2C_Direction_TypeDef;
 
 /**
@@ -100,26 +100,26 @@ typedef enum
 typedef enum
 {
   /* SR1 register flags */
-  I2C_FLAG_TXEMPTY             = (uint16_t)0x0180,  /*!< Transmit Data Register Empty flag */
-  I2C_FLAG_RXNOTEMPTY          = (uint16_t)0x0140,  /*!< Read Data Register Not Empty flag */
-  I2C_FLAG_STOPDETECTION       = (uint16_t)0x0110,  /*!< Stop detected flag */
-  I2C_FLAG_HEADERSENT          = (uint16_t)0x0108,  /*!< 10-bit Header sent flag */
-  I2C_FLAG_TRANSFERFINISHED    = (uint16_t)0x0104,  /*!< Data Byte Transfer Finished flag */
-  I2C_FLAG_ADDRESSSENTMATCHED  = (uint16_t)0x0102,  /*!< Address Sent/Matched (master/slave) flag */
-  I2C_FLAG_STARTDETECTION      = (uint16_t)0x0101,  /*!< Start bit sent flag */
+  I2C_FLAG_TXEMPTY             = ( uint16_t ) 0x0180, /*!< Transmit Data Register Empty flag */
+  I2C_FLAG_RXNOTEMPTY          = ( uint16_t ) 0x0140, /*!< Read Data Register Not Empty flag */
+  I2C_FLAG_STOPDETECTION       = ( uint16_t ) 0x0110, /*!< Stop detected flag */
+  I2C_FLAG_HEADERSENT          = ( uint16_t ) 0x0108, /*!< 10-bit Header sent flag */
+  I2C_FLAG_TRANSFERFINISHED    = ( uint16_t ) 0x0104, /*!< Data Byte Transfer Finished flag */
+  I2C_FLAG_ADDRESSSENTMATCHED  = ( uint16_t ) 0x0102, /*!< Address Sent/Matched (master/slave) flag */
+  I2C_FLAG_STARTDETECTION      = ( uint16_t ) 0x0101, /*!< Start bit sent flag */
 
   /* SR2 register flags */
-  I2C_FLAG_WAKEUPFROMHALT      = (uint16_t)0x0220,  /*!< Wake Up From Halt Flag */
-  I2C_FLAG_OVERRUNUNDERRUN     = (uint16_t)0x0208,  /*!< Overrun/Underrun flag */
-  I2C_FLAG_ACKNOWLEDGEFAILURE  = (uint16_t)0x0204,  /*!< Acknowledge Failure Flag */
-  I2C_FLAG_ARBITRATIONLOSS     = (uint16_t)0x0202,  /*!< Arbitration Loss Flag */
-  I2C_FLAG_BUSERROR            = (uint16_t)0x0201,  /*!< Misplaced Start or Stop condition */
+  I2C_FLAG_WAKEUPFROMHALT      = ( uint16_t ) 0x0220, /*!< Wake Up From Halt Flag */
+  I2C_FLAG_OVERRUNUNDERRUN     = ( uint16_t ) 0x0208, /*!< Overrun/Underrun flag */
+  I2C_FLAG_ACKNOWLEDGEFAILURE  = ( uint16_t ) 0x0204, /*!< Acknowledge Failure Flag */
+  I2C_FLAG_ARBITRATIONLOSS     = ( uint16_t ) 0x0202, /*!< Arbitration Loss Flag */
+  I2C_FLAG_BUSERROR            = ( uint16_t ) 0x0201, /*!< Misplaced Start or Stop condition */
 
   /* SR3 register flags */
-  I2C_FLAG_GENERALCALL         = (uint16_t)0x0310,  /*!< General Call header received Flag */
-  I2C_FLAG_TRANSMITTERRECEIVER = (uint16_t)0x0304,  /*!< Transmitter Receiver Flag */
-  I2C_FLAG_BUSBUSY             = (uint16_t)0x0302,  /*!< Bus Busy Flag */
-  I2C_FLAG_MASTERSLAVE         = (uint16_t)0x0301   /*!< Master Slave Flag */
+  I2C_FLAG_GENERALCALL         = ( uint16_t ) 0x0310, /*!< General Call header received Flag */
+  I2C_FLAG_TRANSMITTERRECEIVER = ( uint16_t ) 0x0304, /*!< Transmitter Receiver Flag */
+  I2C_FLAG_BUSBUSY             = ( uint16_t ) 0x0302, /*!< Bus Busy Flag */
+  I2C_FLAG_MASTERSLAVE         = ( uint16_t ) 0x0301 /*!< Master Slave Flag */
 } I2C_Flag_TypeDef;
 
 /**
@@ -134,21 +134,21 @@ typedef enum
 
 typedef enum
 {
-    /* SR1 register flags */
-    I2C_ITPENDINGBIT_TXEMPTY             = (uint16_t)0x1680, 	/*!< Transmit Data Register Empty  */
-    I2C_ITPENDINGBIT_RXNOTEMPTY          = (uint16_t)0x1640, 	/*!< Read Data Register Not Empty  */
-    I2C_ITPENDINGBIT_STOPDETECTION       = (uint16_t)0x1210, 	/*!< Stop detected  */
-    I2C_ITPENDINGBIT_HEADERSENT          = (uint16_t)0x1208, 	/*!< 10-bit Header sent */
-    I2C_ITPENDINGBIT_TRANSFERFINISHED    = (uint16_t)0x1204, 	/*!< Data Byte Transfer Finished  */
-    I2C_ITPENDINGBIT_ADDRESSSENTMATCHED  = (uint16_t)0x1202, 	/*!< Address Sent/Matched (master/slave)  */
-    I2C_ITPENDINGBIT_STARTDETECTION      = (uint16_t)0x1201, 	/*!< Start bit sent  */
+  /* SR1 register flags */
+  I2C_ITPENDINGBIT_TXEMPTY             = ( uint16_t ) 0x1680, /*!< Transmit Data Register Empty  */
+  I2C_ITPENDINGBIT_RXNOTEMPTY          = ( uint16_t ) 0x1640, /*!< Read Data Register Not Empty  */
+  I2C_ITPENDINGBIT_STOPDETECTION       = ( uint16_t ) 0x1210, /*!< Stop detected  */
+  I2C_ITPENDINGBIT_HEADERSENT          = ( uint16_t ) 0x1208, /*!< 10-bit Header sent */
+  I2C_ITPENDINGBIT_TRANSFERFINISHED    = ( uint16_t ) 0x1204, /*!< Data Byte Transfer Finished  */
+  I2C_ITPENDINGBIT_ADDRESSSENTMATCHED  = ( uint16_t ) 0x1202, /*!< Address Sent/Matched (master/slave)  */
+  I2C_ITPENDINGBIT_STARTDETECTION      = ( uint16_t ) 0x1201, /*!< Start bit sent  */
 
-    /* SR2 register flags */
-    I2C_ITPENDINGBIT_WAKEUPFROMHALT      = (uint16_t)0x2220, 	/*!< Wake Up From Halt  */
-    I2C_ITPENDINGBIT_OVERRUNUNDERRUN     = (uint16_t)0x2108, 	/*!< Overrun/Underrun  */
-    I2C_ITPENDINGBIT_ACKNOWLEDGEFAILURE  = (uint16_t)0x2104, 	/*!< Acknowledge Failure  */
-    I2C_ITPENDINGBIT_ARBITRATIONLOSS     = (uint16_t)0x2102, 	/*!< Arbitration Loss  */
-    I2C_ITPENDINGBIT_BUSERROR            = (uint16_t)0x2101  	/*!< Misplaced Start or Stop condition */
+  /* SR2 register flags */
+  I2C_ITPENDINGBIT_WAKEUPFROMHALT      = ( uint16_t ) 0x2220, /*!< Wake Up From Halt  */
+  I2C_ITPENDINGBIT_OVERRUNUNDERRUN     = ( uint16_t ) 0x2108, /*!< Overrun/Underrun  */
+  I2C_ITPENDINGBIT_ACKNOWLEDGEFAILURE  = ( uint16_t ) 0x2104, /*!< Acknowledge Failure  */
+  I2C_ITPENDINGBIT_ARBITRATIONLOSS     = ( uint16_t ) 0x2102, /*!< Arbitration Loss  */
+  I2C_ITPENDINGBIT_BUSERROR            = ( uint16_t ) 0x2101 /*!< Misplaced Start or Stop condition */
 } I2C_ITPendingBit_TypeDef;
 
 /**
@@ -175,7 +175,7 @@ typedef enum
     *
     */
   /* --EV5 */
-  I2C_EVENT_MASTER_MODE_SELECT               = (uint16_t)0x0301,  /*!< BUSY, MSL and SB flag */
+  I2C_EVENT_MASTER_MODE_SELECT               = ( uint16_t ) 0x0301, /*!< BUSY, MSL and SB flag */
 
   /**
     * @brief  Address Acknowledge
@@ -204,10 +204,10 @@ typedef enum
     *
     */
   /* --EV6 */
-  I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED = (uint16_t)0x0782,  /*!< BUSY, MSL, ADDR, TXE and TRA flags */
-  I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED    = (uint16_t)0x0302,  /*!< BUSY, MSL and ADDR flags */
+  I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED = ( uint16_t ) 0x0782, /*!< BUSY, MSL, ADDR, TXE and TRA flags */
+  I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED    = ( uint16_t ) 0x0302, /*!< BUSY, MSL and ADDR flags */
   /* --EV9 */
-  I2C_EVENT_MASTER_MODE_ADDRESS10            = (uint16_t)0x0308,  /*!< BUSY, MSL and ADD10 flags */
+  I2C_EVENT_MASTER_MODE_ADDRESS10            = ( uint16_t ) 0x0308, /*!< BUSY, MSL and ADD10 flags */
 
   /**
     * @brief Communication events
@@ -239,14 +239,14 @@ typedef enum
     */
   /* Master RECEIVER mode -----------------------------*/
   /* --EV7 */
-  I2C_EVENT_MASTER_BYTE_RECEIVED             = (uint16_t)0x0340,  /*!< BUSY, MSL and RXNE flags */
+  I2C_EVENT_MASTER_BYTE_RECEIVED             = ( uint16_t ) 0x0340, /*!< BUSY, MSL and RXNE flags */
 
   /* Master TRANSMITTER mode --------------------------*/
   /* --EV8 */
-  I2C_EVENT_MASTER_BYTE_TRANSMITTING         = (uint16_t)0x0780,  /*!< TRA, BUSY, MSL, TXE flags */
+  I2C_EVENT_MASTER_BYTE_TRANSMITTING         = ( uint16_t ) 0x0780, /*!< TRA, BUSY, MSL, TXE flags */
   /* --EV8_2 */
 
-  I2C_EVENT_MASTER_BYTE_TRANSMITTED          = (uint16_t)0x0784,  /*!< EV8_2: TRA, BUSY, MSL, TXE and BTF flags */
+  I2C_EVENT_MASTER_BYTE_TRANSMITTED          = ( uint16_t ) 0x0784, /*!< EV8_2: TRA, BUSY, MSL, TXE and BTF flags */
 
 
   /*========================================
@@ -269,19 +269,19 @@ typedef enum
     *   I2C_OwnAddress1 field) the I2C_EVENT_SLAVE_XXX_ADDRESS_MATCHED event is set
     *   (where XXX could be TRANSMITTER or RECEIVER).
     *
-    * 2) In case the address sent by the master is General Call (address 0x00) and 
-    *   if the General Call is enabled for the peripheral (using function I2C_GeneralCallCmd()) 
-    *   the following event is set I2C_EVENT_SLAVE_GENERALCALLADDRESS_MATCHED.  
-    * 
+    * 2) In case the address sent by the master is General Call (address 0x00) and
+    *   if the General Call is enabled for the peripheral (using function I2C_GeneralCallCmd())
+    *   the following event is set I2C_EVENT_SLAVE_GENERALCALLADDRESS_MATCHED.
+    *
     */
 
   /* --EV1  (all the events below are variants of EV1) */
   /* 1) Case of One Single Address managed by the slave */
-  I2C_EVENT_SLAVE_RECEIVER_ADDRESS_MATCHED    = (uint16_t)0x0202,  /*!< BUSY and ADDR flags */
-  I2C_EVENT_SLAVE_TRANSMITTER_ADDRESS_MATCHED = (uint16_t)0x0682,  /*!< TRA, BUSY, TXE and ADDR flags */
+  I2C_EVENT_SLAVE_RECEIVER_ADDRESS_MATCHED    = ( uint16_t ) 0x0202, /*!< BUSY and ADDR flags */
+  I2C_EVENT_SLAVE_TRANSMITTER_ADDRESS_MATCHED = ( uint16_t ) 0x0682, /*!< TRA, BUSY, TXE and ADDR flags */
 
   /* 2) Case of General Call enabled for the slave */
-  I2C_EVENT_SLAVE_GENERALCALLADDRESS_MATCHED  = (uint16_t)0x1200,  /*!< EV2: GENCALL and BUSY flags */
+  I2C_EVENT_SLAVE_GENERALCALLADDRESS_MATCHED  = ( uint16_t ) 0x1200, /*!< EV2: GENCALL and BUSY flags */
 
   /**
     * @brief  Communication events
@@ -312,16 +312,16 @@ typedef enum
     */
   /* Slave RECEIVER mode --------------------------*/
   /* --EV2 */
-  I2C_EVENT_SLAVE_BYTE_RECEIVED              = (uint16_t)0x0240,  /*!< BUSY and RXNE flags */
+  I2C_EVENT_SLAVE_BYTE_RECEIVED              = ( uint16_t ) 0x0240, /*!< BUSY and RXNE flags */
   /* --EV4  */
-  I2C_EVENT_SLAVE_STOP_DETECTED              = (uint16_t)0x0010,  /*!< STOPF flag */
+  I2C_EVENT_SLAVE_STOP_DETECTED              = ( uint16_t ) 0x0010, /*!< STOPF flag */
 
   /* Slave TRANSMITTER mode -----------------------*/
   /* --EV3 */
-  I2C_EVENT_SLAVE_BYTE_TRANSMITTED           = (uint16_t)0x0684,  /*!< TRA, BUSY, TXE and BTF flags */
-  I2C_EVENT_SLAVE_BYTE_TRANSMITTING          = (uint16_t)0x0680,  /*!< TRA, BUSY and TXE flags */
+  I2C_EVENT_SLAVE_BYTE_TRANSMITTED           = ( uint16_t ) 0x0684, /*!< TRA, BUSY, TXE and BTF flags */
+  I2C_EVENT_SLAVE_BYTE_TRANSMITTING          = ( uint16_t ) 0x0680, /*!< TRA, BUSY and TXE flags */
   /* --EV3_2 */
-  I2C_EVENT_SLAVE_ACK_FAILURE                = (uint16_t)0x0004  /*!< AF flag */
+  I2C_EVENT_SLAVE_ACK_FAILURE                = ( uint16_t ) 0x0004 /*!< AF flag */
 } I2C_Event_TypeDef;
 
 /**
@@ -334,10 +334,10 @@ typedef enum
   */
 #define I2C_MAX_STANDARD_FREQ ((uint32_t)100000)
 #define I2C_MAX_FAST_FREQ     ((uint32_t)400000)
-#if defined(STM8S208) || defined(STM8S207) || defined(STM8S007) 
- #define I2C_MAX_INPUT_FREQ     ((uint8_t)24)
+#if defined(STM8S208) || defined(STM8S207) || defined(STM8S007)
+  #define I2C_MAX_INPUT_FREQ     ((uint8_t)24)
 #else
- #define I2C_MAX_INPUT_FREQ     ((uint8_t)16)
+  #define I2C_MAX_INPUT_FREQ     ((uint8_t)16)
 #endif
 
 /**
@@ -420,55 +420,55 @@ typedef enum
   */
 
 #define IS_I2C_CLEAR_FLAG_OK(FLAG) ((((uint16_t)(FLAG) & (uint16_t)0xFD00) == 0x00) \
-                                     && ((uint16_t)(FLAG) != 0x00))
+                                    && ((uint16_t)(FLAG) != 0x00))
 
 /**
   * @brief   Macro used by the assert function to check the different I2C possible pending bits.
   */
 #define IS_I2C_ITPENDINGBIT_OK(ITPENDINGBIT) \
-   (((ITPENDINGBIT) == I2C_ITPENDINGBIT_TXEMPTY)   					|| \
-    ((ITPENDINGBIT) == I2C_ITPENDINGBIT_RXNOTEMPTY) 				|| \
-    ((ITPENDINGBIT) == I2C_ITPENDINGBIT_STOPDETECTION) 			|| \
-    ((ITPENDINGBIT) == I2C_ITPENDINGBIT_HEADERSENT) 				|| \
-    ((ITPENDINGBIT) == I2C_ITPENDINGBIT_TRANSFERFINISHED) 	|| \
-    ((ITPENDINGBIT) == I2C_ITPENDINGBIT_ADDRESSSENTMATCHED) || \
-    ((ITPENDINGBIT) == I2C_ITPENDINGBIT_STARTDETECTION) 		|| \
-    ((ITPENDINGBIT) == I2C_ITPENDINGBIT_WAKEUPFROMHALT)		 	|| \
-    ((ITPENDINGBIT) == I2C_ITPENDINGBIT_OVERRUNUNDERRUN) 		|| \
-    ((ITPENDINGBIT) == I2C_ITPENDINGBIT_ACKNOWLEDGEFAILURE) || \
-    ((ITPENDINGBIT) == I2C_ITPENDINGBIT_ARBITRATIONLOSS) 		|| \
-    ((ITPENDINGBIT) == I2C_ITPENDINGBIT_BUSERROR))
-    
+  (((ITPENDINGBIT) == I2C_ITPENDINGBIT_TXEMPTY)            || \
+   ((ITPENDINGBIT) == I2C_ITPENDINGBIT_RXNOTEMPTY)         || \
+   ((ITPENDINGBIT) == I2C_ITPENDINGBIT_STOPDETECTION)      || \
+   ((ITPENDINGBIT) == I2C_ITPENDINGBIT_HEADERSENT)         || \
+   ((ITPENDINGBIT) == I2C_ITPENDINGBIT_TRANSFERFINISHED)   || \
+   ((ITPENDINGBIT) == I2C_ITPENDINGBIT_ADDRESSSENTMATCHED) || \
+   ((ITPENDINGBIT) == I2C_ITPENDINGBIT_STARTDETECTION)     || \
+   ((ITPENDINGBIT) == I2C_ITPENDINGBIT_WAKEUPFROMHALT)     || \
+   ((ITPENDINGBIT) == I2C_ITPENDINGBIT_OVERRUNUNDERRUN)    || \
+   ((ITPENDINGBIT) == I2C_ITPENDINGBIT_ACKNOWLEDGEFAILURE) || \
+   ((ITPENDINGBIT) == I2C_ITPENDINGBIT_ARBITRATIONLOSS)    || \
+   ((ITPENDINGBIT) == I2C_ITPENDINGBIT_BUSERROR))
+
 /**
   * @brief  Macro used by the assert function to check the different I2C possible
   *   pending bits to clear by writing 0.
   */
 #define IS_I2C_CLEAR_ITPENDINGBIT_OK(ITPENDINGBIT) \
-   (((ITPENDINGBIT) == I2C_ITPENDINGBIT_WAKEUPFROMHALT)     || \
-    ((ITPENDINGBIT) == I2C_ITPENDINGBIT_OVERRUNUNDERRUN)    || \
-    ((ITPENDINGBIT) == I2C_ITPENDINGBIT_ACKNOWLEDGEFAILURE) || \
-    ((ITPENDINGBIT) == I2C_ITPENDINGBIT_ARBITRATIONLOSS)    || \
-    ((ITPENDINGBIT) == I2C_ITPENDINGBIT_BUSERROR))
-   
+  (((ITPENDINGBIT) == I2C_ITPENDINGBIT_WAKEUPFROMHALT)     || \
+   ((ITPENDINGBIT) == I2C_ITPENDINGBIT_OVERRUNUNDERRUN)    || \
+   ((ITPENDINGBIT) == I2C_ITPENDINGBIT_ACKNOWLEDGEFAILURE) || \
+   ((ITPENDINGBIT) == I2C_ITPENDINGBIT_ARBITRATIONLOSS)    || \
+   ((ITPENDINGBIT) == I2C_ITPENDINGBIT_BUSERROR))
+
 /**
   * @brief   Macro used by the assert function to check the different I2C possible events.
   */
 #define IS_I2C_EVENT_OK(EVENT) (((EVENT) == I2C_EVENT_SLAVE_TRANSMITTER_ADDRESS_MATCHED) || \
-                             ((EVENT) == I2C_EVENT_SLAVE_RECEIVER_ADDRESS_MATCHED) || \
-                             ((EVENT) == I2C_EVENT_SLAVE_GENERALCALLADDRESS_MATCHED) || \
-                             ((EVENT) == I2C_EVENT_SLAVE_BYTE_RECEIVED) || \
-                             ((EVENT) == (I2C_EVENT_SLAVE_BYTE_RECEIVED | (uint16_t)I2C_FLAG_GENERALCALL)) || \
-                             ((EVENT) == I2C_EVENT_SLAVE_BYTE_TRANSMITTED) || \
-                             ((EVENT) == (I2C_EVENT_SLAVE_BYTE_TRANSMITTED | (uint16_t)I2C_FLAG_GENERALCALL)) || \
-                             ((EVENT) == I2C_EVENT_SLAVE_ACK_FAILURE) || \
-                             ((EVENT) == I2C_EVENT_SLAVE_STOP_DETECTED) || \
-                             ((EVENT) == I2C_EVENT_MASTER_MODE_SELECT) || \
-                             ((EVENT) == I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED) || \
-                             ((EVENT) == I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED) || \
-                             ((EVENT) == I2C_EVENT_MASTER_BYTE_RECEIVED) || \
-                             ((EVENT) == I2C_EVENT_MASTER_BYTE_TRANSMITTED) || \
-                             ((EVENT) == I2C_EVENT_MASTER_BYTE_TRANSMITTING) || \
-                             ((EVENT) == I2C_EVENT_MASTER_MODE_ADDRESS10))
+                                ((EVENT) == I2C_EVENT_SLAVE_RECEIVER_ADDRESS_MATCHED) || \
+                                ((EVENT) == I2C_EVENT_SLAVE_GENERALCALLADDRESS_MATCHED) || \
+                                ((EVENT) == I2C_EVENT_SLAVE_BYTE_RECEIVED) || \
+                                ((EVENT) == (I2C_EVENT_SLAVE_BYTE_RECEIVED | (uint16_t)I2C_FLAG_GENERALCALL)) || \
+                                ((EVENT) == I2C_EVENT_SLAVE_BYTE_TRANSMITTED) || \
+                                ((EVENT) == (I2C_EVENT_SLAVE_BYTE_TRANSMITTED | (uint16_t)I2C_FLAG_GENERALCALL)) || \
+                                ((EVENT) == I2C_EVENT_SLAVE_ACK_FAILURE) || \
+                                ((EVENT) == I2C_EVENT_SLAVE_STOP_DETECTED) || \
+                                ((EVENT) == I2C_EVENT_MASTER_MODE_SELECT) || \
+                                ((EVENT) == I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED) || \
+                                ((EVENT) == I2C_EVENT_MASTER_RECEIVER_MODE_SELECTED) || \
+                                ((EVENT) == I2C_EVENT_MASTER_BYTE_RECEIVED) || \
+                                ((EVENT) == I2C_EVENT_MASTER_BYTE_TRANSMITTED) || \
+                                ((EVENT) == I2C_EVENT_MASTER_BYTE_TRANSMITTING) || \
+                                ((EVENT) == I2C_EVENT_MASTER_MODE_ADDRESS10))
 
 /**
   * @brief   Macro used by the assert function to check the different I2C possible own address.
@@ -502,22 +502,22 @@ typedef enum
   * @{
   */
 
-void I2C_DeInit(void);
-void I2C_Init(uint32_t OutputClockFrequencyHz, uint16_t OwnAddress, 
-              I2C_DutyCycle_TypeDef I2C_DutyCycle, I2C_Ack_TypeDef Ack, 
-              I2C_AddMode_TypeDef AddMode, uint8_t InputClockFrequencyMHz );
-void I2C_Cmd(FunctionalState NewState);
-void I2C_GeneralCallCmd(FunctionalState NewState);
-void I2C_GenerateSTART(FunctionalState NewState);
-void I2C_GenerateSTOP(FunctionalState NewState);
-void I2C_SoftwareResetCmd(FunctionalState NewState);
-void I2C_StretchClockCmd(FunctionalState NewState);
-void I2C_AcknowledgeConfig(I2C_Ack_TypeDef Ack);
-void I2C_FastModeDutyCycleConfig(I2C_DutyCycle_TypeDef I2C_DutyCycle);
-void I2C_ITConfig(I2C_IT_TypeDef I2C_IT, FunctionalState NewState);
-uint8_t I2C_ReceiveData(void);
-void I2C_Send7bitAddress(uint8_t Address, I2C_Direction_TypeDef Direction);
-void I2C_SendData(uint8_t Data);
+void I2C_DeInit ( void );
+void I2C_Init ( uint32_t OutputClockFrequencyHz, uint16_t OwnAddress,
+                I2C_DutyCycle_TypeDef I2C_DutyCycle, I2C_Ack_TypeDef Ack,
+                I2C_AddMode_TypeDef AddMode, uint8_t InputClockFrequencyMHz );
+void I2C_Cmd ( FunctionalState NewState );
+void I2C_GeneralCallCmd ( FunctionalState NewState );
+void I2C_GenerateSTART ( FunctionalState NewState );
+void I2C_GenerateSTOP ( FunctionalState NewState );
+void I2C_SoftwareResetCmd ( FunctionalState NewState );
+void I2C_StretchClockCmd ( FunctionalState NewState );
+void I2C_AcknowledgeConfig ( I2C_Ack_TypeDef Ack );
+void I2C_FastModeDutyCycleConfig ( I2C_DutyCycle_TypeDef I2C_DutyCycle );
+void I2C_ITConfig ( I2C_IT_TypeDef I2C_IT, FunctionalState NewState );
+uint8_t I2C_ReceiveData ( void );
+void I2C_Send7bitAddress ( uint8_t Address, I2C_Direction_TypeDef Direction );
+void I2C_SendData ( uint8_t Data );
 /**
  * @brief
  ****************************************************************************************
@@ -600,26 +600,26 @@ void I2C_SendData(uint8_t Data);
  *  1) Basic state monitoring
  *******************************************************************************
  */
-ErrorStatus I2C_CheckEvent(I2C_Event_TypeDef I2C_Event);
+ErrorStatus I2C_CheckEvent ( I2C_Event_TypeDef I2C_Event );
 /**
  *
  *  2) Advanced state monitoring
  *******************************************************************************
  */
-I2C_Event_TypeDef I2C_GetLastEvent(void);
+I2C_Event_TypeDef I2C_GetLastEvent ( void );
 /**
  *
  *  3) Flag-based state monitoring
  *******************************************************************************
  */
-FlagStatus I2C_GetFlagStatus(I2C_Flag_TypeDef I2C_Flag);
+FlagStatus I2C_GetFlagStatus ( I2C_Flag_TypeDef I2C_Flag );
 /**
  *
  *******************************************************************************
  */
-void I2C_ClearFlag(I2C_Flag_TypeDef I2C_FLAG);
-ITStatus I2C_GetITStatus(I2C_ITPendingBit_TypeDef I2C_ITPendingBit);
-void I2C_ClearITPendingBit(I2C_ITPendingBit_TypeDef I2C_ITPendingBit);
+void I2C_ClearFlag ( I2C_Flag_TypeDef I2C_FLAG );
+ITStatus I2C_GetITStatus ( I2C_ITPendingBit_TypeDef I2C_ITPendingBit );
+void I2C_ClearITPendingBit ( I2C_ITPendingBit_TypeDef I2C_ITPendingBit );
 
 
 /**

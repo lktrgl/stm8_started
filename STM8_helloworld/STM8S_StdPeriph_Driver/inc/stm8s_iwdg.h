@@ -16,8 +16,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -87,20 +87,20 @@
 /** IWDG write  access enumeration */
 typedef enum
 {
-  IWDG_WriteAccess_Enable  = (uint8_t)0x55, /*!< Code 0x55 in Key register, allow write access to Prescaler and Reload registers */
-  IWDG_WriteAccess_Disable = (uint8_t)0x00  /*!< Code 0x00 in Key register, not allow write access to Prescaler and Reload registers */
+  IWDG_WriteAccess_Enable  = ( uint8_t ) 0x55, /*!< Code 0x55 in Key register, allow write access to Prescaler and Reload registers */
+  IWDG_WriteAccess_Disable = ( uint8_t ) 0x00 /*!< Code 0x00 in Key register, not allow write access to Prescaler and Reload registers */
 } IWDG_WriteAccess_TypeDef;
 
 /** IWDG prescaler enumaration */
 typedef enum
 {
-  IWDG_Prescaler_4   = (uint8_t)0x00, /*!< Used to set prescaler register to 4 */
-  IWDG_Prescaler_8   = (uint8_t)0x01, /*!< Used to set prescaler register to 8 */
-  IWDG_Prescaler_16  = (uint8_t)0x02, /*!< Used to set prescaler register to 16 */
-  IWDG_Prescaler_32  = (uint8_t)0x03, /*!< Used to set prescaler register to 32 */
-  IWDG_Prescaler_64  = (uint8_t)0x04, /*!< Used to set prescaler register to 64 */
-  IWDG_Prescaler_128 = (uint8_t)0x05, /*!< Used to set prescaler register to 128 */
-  IWDG_Prescaler_256 = (uint8_t)0x06  /*!< Used to set prescaler register to 256 */
+  IWDG_Prescaler_4   = ( uint8_t ) 0x00, /*!< Used to set prescaler register to 4 */
+  IWDG_Prescaler_8   = ( uint8_t ) 0x01, /*!< Used to set prescaler register to 8 */
+  IWDG_Prescaler_16  = ( uint8_t ) 0x02, /*!< Used to set prescaler register to 16 */
+  IWDG_Prescaler_32  = ( uint8_t ) 0x03, /*!< Used to set prescaler register to 32 */
+  IWDG_Prescaler_64  = ( uint8_t ) 0x04, /*!< Used to set prescaler register to 64 */
+  IWDG_Prescaler_128 = ( uint8_t ) 0x05, /*!< Used to set prescaler register to 128 */
+  IWDG_Prescaler_256 = ( uint8_t ) 0x06 /*!< Used to set prescaler register to 256 */
 } IWDG_Prescaler_TypeDef;
 
 /**
@@ -111,11 +111,11 @@ typedef enum
   * @{
   */
 
-void IWDG_WriteAccessCmd(IWDG_WriteAccess_TypeDef IWDG_WriteAccess);
-void IWDG_SetPrescaler(IWDG_Prescaler_TypeDef IWDG_Prescaler);
-void IWDG_SetReload(uint8_t IWDG_Reload);
-void IWDG_ReloadCounter(void);
-void IWDG_Enable(void);
+void IWDG_WriteAccessCmd ( IWDG_WriteAccess_TypeDef IWDG_WriteAccess );
+void IWDG_SetPrescaler ( IWDG_Prescaler_TypeDef IWDG_Prescaler );
+void IWDG_SetReload ( uint8_t IWDG_Reload );
+void IWDG_ReloadCounter ( void );
+void IWDG_Enable ( void );
 
 /**
   * @}

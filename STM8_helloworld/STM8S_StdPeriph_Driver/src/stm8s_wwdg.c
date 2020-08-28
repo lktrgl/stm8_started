@@ -16,8 +16,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -50,14 +50,14 @@
   * @param  WindowValue : specifies the WWDG Window Register, range is 0x00 to 0x7F.
   * @retval None
   */
-void WWDG_Init(uint8_t Counter, uint8_t WindowValue)
+void WWDG_Init ( uint8_t Counter, uint8_t WindowValue )
 {
   /* Check the parameters */
-  assert_param(IS_WWDG_WINDOWLIMITVALUE_OK(WindowValue));
-  
+  assert_param ( IS_WWDG_WINDOWLIMITVALUE_OK ( WindowValue ) );
+
   WWDG->WR = WWDG_WR_RESET_VALUE;
-  WWDG->CR = (uint8_t)((uint8_t)(WWDG_CR_WDGA | WWDG_CR_T6) | (uint8_t)Counter);
-  WWDG->WR = (uint8_t)((uint8_t)(~WWDG_CR_WDGA) & (uint8_t)(WWDG_CR_T6 | WindowValue));
+  WWDG->CR = ( uint8_t ) ( ( uint8_t ) ( WWDG_CR_WDGA | WWDG_CR_T6 ) | ( uint8_t ) Counter );
+  WWDG->WR = ( uint8_t ) ( ( uint8_t ) ( ~WWDG_CR_WDGA ) & ( uint8_t ) ( WWDG_CR_T6 | WindowValue ) );
 }
 
 /**
@@ -66,14 +66,14 @@ void WWDG_Init(uint8_t Counter, uint8_t WindowValue)
   *         This parameter must be a number between 0x40 and 0x7F.
   * @retval None
   */
-void WWDG_SetCounter(uint8_t Counter)
+void WWDG_SetCounter ( uint8_t Counter )
 {
   /* Check the parameters */
-  assert_param(IS_WWDG_COUNTERVALUE_OK(Counter));
-  
+  assert_param ( IS_WWDG_COUNTERVALUE_OK ( Counter ) );
+
   /* Write to T[6:0] bits to configure the counter value, no need to do
   a read-modify-write; writing a 0 to WDGA bit does nothing */
-  WWDG->CR = (uint8_t)(Counter & (uint8_t)BIT_MASK);
+  WWDG->CR = ( uint8_t ) ( Counter & ( uint8_t ) BIT_MASK );
 }
 
 /**
@@ -83,9 +83,9 @@ void WWDG_SetCounter(uint8_t Counter)
   * @param  None
   * @retval WWDG Counter Value
   */
-uint8_t WWDG_GetCounter(void)
+uint8_t WWDG_GetCounter ( void )
 {
-  return(WWDG->CR);
+  return ( WWDG->CR );
 }
 
 /**
@@ -93,7 +93,7 @@ uint8_t WWDG_GetCounter(void)
   * @param  None
   * @retval None
   */
-void WWDG_SWReset(void)
+void WWDG_SWReset ( void )
 {
   WWDG->CR = WWDG_CR_WDGA; /* Activate WWDG, with clearing T6 */
 }
@@ -105,21 +105,21 @@ void WWDG_SWReset(void)
   *         This parameter value must be lower than 0x80.
   * @retval None
   */
-void WWDG_SetWindowValue(uint8_t WindowValue)
+void WWDG_SetWindowValue ( uint8_t WindowValue )
 {
   /* Check the parameters */
-  assert_param(IS_WWDG_WINDOWLIMITVALUE_OK(WindowValue));
-  
-  WWDG->WR = (uint8_t)((uint8_t)(~WWDG_CR_WDGA) & (uint8_t)(WWDG_CR_T6 | WindowValue));
+  assert_param ( IS_WWDG_WINDOWLIMITVALUE_OK ( WindowValue ) );
+
+  WWDG->WR = ( uint8_t ) ( ( uint8_t ) ( ~WWDG_CR_WDGA ) & ( uint8_t ) ( WWDG_CR_T6 | WindowValue ) );
 }
 
 /**
   * @}
   */
-  
+
 /**
   * @}
   */
-  
+
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -16,8 +16,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -45,12 +45,12 @@
   *         registers.  This parameter can be a value of @ref IWDG_WriteAccess_TypeDef.
   * @retval None
   */
-void IWDG_WriteAccessCmd(IWDG_WriteAccess_TypeDef IWDG_WriteAccess)
+void IWDG_WriteAccessCmd ( IWDG_WriteAccess_TypeDef IWDG_WriteAccess )
 {
   /* Check the parameters */
-  assert_param(IS_IWDG_WRITEACCESS_MODE_OK(IWDG_WriteAccess));
-  
-  IWDG->KR = (uint8_t)IWDG_WriteAccess; /* Write Access */
+  assert_param ( IS_IWDG_WRITEACCESS_MODE_OK ( IWDG_WriteAccess ) );
+
+  IWDG->KR = ( uint8_t ) IWDG_WriteAccess; /* Write Access */
 }
 
 /**
@@ -60,12 +60,12 @@ void IWDG_WriteAccessCmd(IWDG_WriteAccess_TypeDef IWDG_WriteAccess)
   *         This parameter can be a value of @ref IWDG_Prescaler_TypeDef.
   * @retval None
   */
-void IWDG_SetPrescaler(IWDG_Prescaler_TypeDef IWDG_Prescaler)
+void IWDG_SetPrescaler ( IWDG_Prescaler_TypeDef IWDG_Prescaler )
 {
   /* Check the parameters */
-  assert_param(IS_IWDG_PRESCALER_OK(IWDG_Prescaler));
-  
-  IWDG->PR = (uint8_t)IWDG_Prescaler;
+  assert_param ( IS_IWDG_PRESCALER_OK ( IWDG_Prescaler ) );
+
+  IWDG->PR = ( uint8_t ) IWDG_Prescaler;
 }
 
 /**
@@ -75,7 +75,7 @@ void IWDG_SetPrescaler(IWDG_Prescaler_TypeDef IWDG_Prescaler)
   *         This parameter must be a number between 0 and 0xFF.
   * @retval None
   */
-void IWDG_SetReload(uint8_t IWDG_Reload)
+void IWDG_SetReload ( uint8_t IWDG_Reload )
 {
   IWDG->RLR = IWDG_Reload;
 }
@@ -86,7 +86,7 @@ void IWDG_SetReload(uint8_t IWDG_Reload)
   * @param  None
   * @retval None
   */
-void IWDG_ReloadCounter(void)
+void IWDG_ReloadCounter ( void )
 {
   IWDG->KR = IWDG_KEY_REFRESH;
 }
@@ -96,7 +96,7 @@ void IWDG_ReloadCounter(void)
   * @param  None
   * @retval None
   */
-void IWDG_Enable(void)
+void IWDG_Enable ( void )
 {
   IWDG->KR = IWDG_KEY_ENABLE;
 }
@@ -104,10 +104,10 @@ void IWDG_Enable(void)
 /**
   * @}
   */
-  
+
 /**
   * @}
   */
-  
+
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -16,8 +16,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -38,13 +38,14 @@
 /** @addtogroup RST_Exported_Types
   * @{
   */
-typedef enum {
-  RST_FLAG_EMCF    = (uint8_t)0x10, /*!< EMC reset flag */
-  RST_FLAG_SWIMF   = (uint8_t)0x08, /*!< SWIM reset flag */
-  RST_FLAG_ILLOPF  = (uint8_t)0x04, /*!< Illigal opcode reset flag */
-  RST_FLAG_IWDGF   = (uint8_t)0x02, /*!< Independent watchdog reset flag */
-  RST_FLAG_WWDGF   = (uint8_t)0x01  /*!< Window watchdog reset flag */
-}RST_Flag_TypeDef;
+typedef enum
+{
+  RST_FLAG_EMCF    = ( uint8_t ) 0x10, /*!< EMC reset flag */
+  RST_FLAG_SWIMF   = ( uint8_t ) 0x08, /*!< SWIM reset flag */
+  RST_FLAG_ILLOPF  = ( uint8_t ) 0x04, /*!< Illigal opcode reset flag */
+  RST_FLAG_IWDGF   = ( uint8_t ) 0x02, /*!< Independent watchdog reset flag */
+  RST_FLAG_WWDGF   = ( uint8_t ) 0x01 /*!< Window watchdog reset flag */
+} RST_Flag_TypeDef;
 
 /**
   * @}
@@ -76,8 +77,8 @@ typedef enum {
 /** @addtogroup RST_Exported_functions
   * @{
   */
-FlagStatus RST_GetFlagStatus(RST_Flag_TypeDef RST_Flag);
-void RST_ClearFlag(RST_Flag_TypeDef RST_Flag);
+FlagStatus RST_GetFlagStatus ( RST_Flag_TypeDef RST_Flag );
+void RST_ClearFlag ( RST_Flag_TypeDef RST_Flag );
 
 /**
   * @}

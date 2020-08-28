@@ -16,8 +16,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -51,13 +51,13 @@
   *          This parameter can be a value of @ref RST_FLAG_TypeDef.
   * @retval  FlagStatus: status of the given RST flag.
   */
-FlagStatus RST_GetFlagStatus(RST_Flag_TypeDef RST_Flag)
+FlagStatus RST_GetFlagStatus ( RST_Flag_TypeDef RST_Flag )
 {
   /* Check the parameters */
-  assert_param(IS_RST_FLAG_OK(RST_Flag));
-  
+  assert_param ( IS_RST_FLAG_OK ( RST_Flag ) );
+
   /* Get flag status */
-  return((FlagStatus)(((uint8_t)(RST->SR & RST_Flag) == (uint8_t)0x00) ? RESET : SET));
+  return ( ( FlagStatus ) ( ( ( uint8_t ) ( RST->SR & RST_Flag ) == ( uint8_t ) 0x00 ) ? RESET : SET ) );
 }
 
 /**
@@ -66,21 +66,21 @@ FlagStatus RST_GetFlagStatus(RST_Flag_TypeDef RST_Flag)
   *         This parameter can be a value of @ref RST_FLAG_TypeDef.
   * @retval None
   */
-void RST_ClearFlag(RST_Flag_TypeDef RST_Flag)
+void RST_ClearFlag ( RST_Flag_TypeDef RST_Flag )
 {
   /* Check the parameters */
-  assert_param(IS_RST_FLAG_OK(RST_Flag));
-  
-  RST->SR = (uint8_t)RST_Flag;
+  assert_param ( IS_RST_FLAG_OK ( RST_Flag ) );
+
+  RST->SR = ( uint8_t ) RST_Flag;
 }
 
 /**
   * @}
   */
-  
+
 /**
   * @}
   */
-  
+
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

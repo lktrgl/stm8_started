@@ -16,8 +16,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -44,23 +44,23 @@
 
 typedef enum
 {
-  AWU_TIMEBASE_NO_IT  = (uint8_t)0,    /*!< No AWU interrupt selected */
-  AWU_TIMEBASE_250US  = (uint8_t)1,    /*!< AWU Timebase equals 0.25 ms */
-  AWU_TIMEBASE_500US  = (uint8_t)2,    /*!< AWU Timebase equals 0.5 ms */
-  AWU_TIMEBASE_1MS    = (uint8_t)3,    /*!< AWU Timebase equals 1 ms */
-  AWU_TIMEBASE_2MS    = (uint8_t)4,    /*!< AWU Timebase equals 2 ms */
-  AWU_TIMEBASE_4MS    = (uint8_t)5,    /*!< AWU Timebase equals 4 ms */
-  AWU_TIMEBASE_8MS    = (uint8_t)6,    /*!< AWU Timebase equals 8 ms */
-  AWU_TIMEBASE_16MS   = (uint8_t)7,    /*!< AWU Timebase equals 16 ms */
-  AWU_TIMEBASE_32MS   = (uint8_t)8,    /*!< AWU Timebase equals 32 ms */
-  AWU_TIMEBASE_64MS   = (uint8_t)9,    /*!< AWU Timebase equals 64 ms */
-  AWU_TIMEBASE_128MS  = (uint8_t)10,   /*!< AWU Timebase equals 128 ms */
-  AWU_TIMEBASE_256MS  = (uint8_t)11,   /*!< AWU Timebase equals 256 ms */
-  AWU_TIMEBASE_512MS  = (uint8_t)12,   /*!< AWU Timebase equals 512 ms */
-  AWU_TIMEBASE_1S     = (uint8_t)13,   /*!< AWU Timebase equals 1 s */
-  AWU_TIMEBASE_2S     = (uint8_t)14,   /*!< AWU Timebase equals 2 s */
-  AWU_TIMEBASE_12S    = (uint8_t)15,   /*!< AWU Timebase equals 12 s */
-  AWU_TIMEBASE_30S    = (uint8_t)16    /*!< AWU Timebase equals 30 s */
+  AWU_TIMEBASE_NO_IT  = ( uint8_t ) 0, /*!< No AWU interrupt selected */
+  AWU_TIMEBASE_250US  = ( uint8_t ) 1, /*!< AWU Timebase equals 0.25 ms */
+  AWU_TIMEBASE_500US  = ( uint8_t ) 2, /*!< AWU Timebase equals 0.5 ms */
+  AWU_TIMEBASE_1MS    = ( uint8_t ) 3, /*!< AWU Timebase equals 1 ms */
+  AWU_TIMEBASE_2MS    = ( uint8_t ) 4, /*!< AWU Timebase equals 2 ms */
+  AWU_TIMEBASE_4MS    = ( uint8_t ) 5, /*!< AWU Timebase equals 4 ms */
+  AWU_TIMEBASE_8MS    = ( uint8_t ) 6, /*!< AWU Timebase equals 8 ms */
+  AWU_TIMEBASE_16MS   = ( uint8_t ) 7, /*!< AWU Timebase equals 16 ms */
+  AWU_TIMEBASE_32MS   = ( uint8_t ) 8, /*!< AWU Timebase equals 32 ms */
+  AWU_TIMEBASE_64MS   = ( uint8_t ) 9, /*!< AWU Timebase equals 64 ms */
+  AWU_TIMEBASE_128MS  = ( uint8_t ) 10, /*!< AWU Timebase equals 128 ms */
+  AWU_TIMEBASE_256MS  = ( uint8_t ) 11, /*!< AWU Timebase equals 256 ms */
+  AWU_TIMEBASE_512MS  = ( uint8_t ) 12, /*!< AWU Timebase equals 512 ms */
+  AWU_TIMEBASE_1S     = ( uint8_t ) 13, /*!< AWU Timebase equals 1 s */
+  AWU_TIMEBASE_2S     = ( uint8_t ) 14, /*!< AWU Timebase equals 2 s */
+  AWU_TIMEBASE_12S    = ( uint8_t ) 15, /*!< AWU Timebase equals 12 s */
+  AWU_TIMEBASE_30S    = ( uint8_t ) 16 /*!< AWU Timebase equals 30 s */
 } AWU_Timebase_TypeDef;
 
 /**
@@ -130,12 +130,12 @@ typedef enum
 /** @addtogroup AWU_Exported_Functions
   * @{
   */
-void AWU_DeInit(void);
-void AWU_Init(AWU_Timebase_TypeDef AWU_TimeBase);
-void AWU_Cmd(FunctionalState NewState);
-void AWU_LSICalibrationConfig(uint32_t LSIFreqHz);
-void AWU_IdleModeEnable(void);
-FlagStatus AWU_GetFlagStatus(void);
+void AWU_DeInit ( void );
+void AWU_Init ( AWU_Timebase_TypeDef AWU_TimeBase );
+void AWU_Cmd ( FunctionalState NewState );
+void AWU_LSICalibrationConfig ( uint32_t LSIFreqHz );
+void AWU_IdleModeEnable ( void );
+FlagStatus AWU_GetFlagStatus ( void );
 
 /**
   * @}

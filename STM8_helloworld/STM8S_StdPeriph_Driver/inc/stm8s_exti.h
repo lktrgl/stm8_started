@@ -16,8 +16,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -41,30 +41,33 @@
 /**
   * @brief  EXTI Sensitivity values for PORTA to PORTE
   */
-typedef enum {
-  EXTI_SENSITIVITY_FALL_LOW  = (uint8_t)0x00, /*!< Interrupt on Falling edge and Low level */
-  EXTI_SENSITIVITY_RISE_ONLY = (uint8_t)0x01, /*!< Interrupt on Rising edge only */
-  EXTI_SENSITIVITY_FALL_ONLY = (uint8_t)0x02, /*!< Interrupt on Falling edge only */
-  EXTI_SENSITIVITY_RISE_FALL = (uint8_t)0x03  /*!< Interrupt on Rising and Falling edges */
+typedef enum
+{
+  EXTI_SENSITIVITY_FALL_LOW  = ( uint8_t ) 0x00, /*!< Interrupt on Falling edge and Low level */
+  EXTI_SENSITIVITY_RISE_ONLY = ( uint8_t ) 0x01, /*!< Interrupt on Rising edge only */
+  EXTI_SENSITIVITY_FALL_ONLY = ( uint8_t ) 0x02, /*!< Interrupt on Falling edge only */
+  EXTI_SENSITIVITY_RISE_FALL = ( uint8_t ) 0x03 /*!< Interrupt on Rising and Falling edges */
 } EXTI_Sensitivity_TypeDef;
 
 /**
   * @brief  EXTI Sensitivity values for TLI
   */
-typedef enum {
-  EXTI_TLISENSITIVITY_FALL_ONLY = (uint8_t)0x00, /*!< Top Level Interrupt on Falling edge only */
-  EXTI_TLISENSITIVITY_RISE_ONLY = (uint8_t)0x04  /*!< Top Level Interrupt on Rising edge only */
+typedef enum
+{
+  EXTI_TLISENSITIVITY_FALL_ONLY = ( uint8_t ) 0x00, /*!< Top Level Interrupt on Falling edge only */
+  EXTI_TLISENSITIVITY_RISE_ONLY = ( uint8_t ) 0x04 /*!< Top Level Interrupt on Rising edge only */
 } EXTI_TLISensitivity_TypeDef;
 
 /**
   * @brief  EXTI PortNum possible values
   */
-typedef enum {
-  EXTI_PORT_GPIOA = (uint8_t)0x00, /*!< GPIO Port A */
-  EXTI_PORT_GPIOB = (uint8_t)0x01, /*!< GPIO Port B */
-  EXTI_PORT_GPIOC = (uint8_t)0x02, /*!< GPIO Port C */
-  EXTI_PORT_GPIOD = (uint8_t)0x03, /*!< GPIO Port D */
-  EXTI_PORT_GPIOE = (uint8_t)0x04  /*!< GPIO Port E */
+typedef enum
+{
+  EXTI_PORT_GPIOA = ( uint8_t ) 0x00, /*!< GPIO Port A */
+  EXTI_PORT_GPIOB = ( uint8_t ) 0x01, /*!< GPIO Port B */
+  EXTI_PORT_GPIOC = ( uint8_t ) 0x02, /*!< GPIO Port C */
+  EXTI_PORT_GPIOD = ( uint8_t ) 0x03, /*!< GPIO Port D */
+  EXTI_PORT_GPIOE = ( uint8_t ) 0x04 /*!< GPIO Port E */
 } EXTI_Port_TypeDef;
 
 /**
@@ -118,11 +121,11 @@ typedef enum {
   * @{
   */
 
-void EXTI_DeInit(void);
-void EXTI_SetExtIntSensitivity(EXTI_Port_TypeDef Port, EXTI_Sensitivity_TypeDef SensitivityValue);
-void EXTI_SetTLISensitivity(EXTI_TLISensitivity_TypeDef SensitivityValue);
-EXTI_Sensitivity_TypeDef EXTI_GetExtIntSensitivity(EXTI_Port_TypeDef Port);
-EXTI_TLISensitivity_TypeDef EXTI_GetTLISensitivity(void);
+void EXTI_DeInit ( void );
+void EXTI_SetExtIntSensitivity ( EXTI_Port_TypeDef Port, EXTI_Sensitivity_TypeDef SensitivityValue );
+void EXTI_SetTLISensitivity ( EXTI_TLISensitivity_TypeDef SensitivityValue );
+EXTI_Sensitivity_TypeDef EXTI_GetExtIntSensitivity ( EXTI_Port_TypeDef Port );
+EXTI_TLISensitivity_TypeDef EXTI_GetTLISensitivity ( void );
 
 /**
   * @}

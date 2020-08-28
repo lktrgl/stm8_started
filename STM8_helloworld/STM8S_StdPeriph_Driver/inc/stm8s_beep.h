@@ -16,8 +16,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -42,10 +42,11 @@
 /**
   * @brief  BEEP Frequency selection
   */
-typedef enum {
-  BEEP_FREQUENCY_1KHZ = (uint8_t)0x00,  /*!< Beep signal output frequency equals to 1 KHz */
-  BEEP_FREQUENCY_2KHZ = (uint8_t)0x40,  /*!< Beep signal output frequency equals to 2 KHz */
-  BEEP_FREQUENCY_4KHZ = (uint8_t)0x80   /*!< Beep signal output frequency equals to 4 KHz */
+typedef enum
+{
+  BEEP_FREQUENCY_1KHZ = ( uint8_t ) 0x00, /*!< Beep signal output frequency equals to 1 KHz */
+  BEEP_FREQUENCY_2KHZ = ( uint8_t ) 0x40, /*!< Beep signal output frequency equals to 2 KHz */
+  BEEP_FREQUENCY_4KHZ = ( uint8_t ) 0x80 /*!< Beep signal output frequency equals to 4 KHz */
 } BEEP_Frequency_TypeDef;
 
 /**
@@ -103,10 +104,10 @@ typedef enum {
   * @{
   */
 
-void BEEP_DeInit(void);
-void BEEP_Init(BEEP_Frequency_TypeDef BEEP_Frequency);
-void BEEP_Cmd(FunctionalState NewState);
-void BEEP_LSICalibrationConfig(uint32_t LSIFreqHz);
+void BEEP_DeInit ( void );
+void BEEP_Init ( BEEP_Frequency_TypeDef BEEP_Frequency );
+void BEEP_Cmd ( FunctionalState NewState );
+void BEEP_LSICalibrationConfig ( uint32_t LSIFreqHz );
 
 
 /**
